@@ -1,0 +1,47 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+# CLion specific files
+.idea/
+cmake-build-*/
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+Testing/
+CTestTestfile.cmake
+
+# Qt generated files
+*.moc
+*.qrc
+*.rcc
+*.qch
+*.qmlc
+*.qrc.depends
+
+# Binary files
+*.o
+*.so
+*.a
+*.exe
+*.out
+*.app
+*.dylib
+*.dll
+
+# Logs and databases
+*.log
+*.db
+*.sqlite
+
+# User-specific files
+*.swp
+*~
