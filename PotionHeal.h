@@ -11,9 +11,9 @@ class PotionHeal : public Potion{
 private:
 public:
     PotionHeal(const string &name, const int &effect, const int &price);
-    // Renvoie la quantité d'effect de la potion
+    // Affiche un message d'utilisation et renvoie la quantité d'effect de la potion
     int use() override;
-    // Renvoie 'HEAL'
+    // Renvoie 'HEAL_POTION'
     string getType() override {
         return m_potionType;
     }
