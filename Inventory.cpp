@@ -113,7 +113,7 @@ Shield* Inventory::equipShield(const int indexItem){
     return nullptr;
 }
 
-// Renvoi le type d'item présent dans l'inventaire (SWORD,WAND,SHIELD,POTIONHEAL,POTIONSTRENGHT)
+// Renvoi le type d'item présent dans l'inventaire (SWORD,WAND,SHIELD,POTIONHEAL,POTIONSTRENGTH,POTIONDEFENSE)
 string Inventory::getItemType(const int indexItem) const {
     // Si l'index fourni correspond a aucun item présent dans l'inventaire on renvoie une erreur
     if (indexItem < 0 || indexItem >= m_itemsArray.size()) {
