@@ -6,11 +6,12 @@
 #define HERO_H
 
 #include "Inventory.h"
-#include "Item.h"
-#include "Weapon.h"
 #include "Sword.h"
 #include "Wand.h"
 #include "Shield.h"
+#include "PotionHeal.h"
+#include "PotionStrength.h"
+#include "PotionDefense.h"
 
 // La classe abstraite 'Hero' a pour enfant :
 // - 'Warrior' : Peut uniquement équiper une arme 'Sword', pas de 'Shield'
@@ -55,6 +56,8 @@ public:
     void addToInventory(Item* ptr_item) const;
     // On supprime et detruit un objet de l'inventaire
     void removeFromInventory(const int indexItem) const;
+
+    void drinkFromInventory(const int indexItem);
 
     // Suite de strings contenant toutes les stats du héro
     virtual string showStats() const;
