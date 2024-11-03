@@ -35,6 +35,7 @@ void Monster::attackHero(Hero *hero) {
         heroHealth -= monsterAttack;
         hero->setHealth(heroHealth);
         if (heroHealth <= 0) {
+            delete hero;
             cout << "Hero is dead" << endl; // Remplacer par gameOver
         }
     }
