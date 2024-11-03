@@ -40,7 +40,9 @@ add_executable(TP_leVillage main.cpp
         PotionStrength.cpp
         PotionStrength.h
         PotionDefense.cpp
-        PotionDefense.h)
+        PotionDefense.h
+        Monster.cpp
+        Slime.cpp)
 target_link_libraries(TP_leVillage
         Qt::Core
 )

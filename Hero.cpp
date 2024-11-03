@@ -22,7 +22,6 @@ void Hero::dropWeapon() {
     m_weapon = nullptr;
 }
 
-
 // Ajoute un pointeur d'item dans l'inventaire
 void Hero::addToInventory(Item *ptr_item) const {
     m_inventory->addItem(ptr_item);
@@ -80,6 +79,10 @@ void Hero::drinkFromInventory(const int indexItem) {
     cout << "The choosen item isn't a potion" << endl;
 }
 
+void Hero::attackMonster(Hero *hero, Monster *monster) {
+    monster->setHealth(monster->getHealth()-hero->getAttack());
+    monster->isMonsterDead(hero);
+}
 
 
 // Permet de lister toutes les stats d'un héro

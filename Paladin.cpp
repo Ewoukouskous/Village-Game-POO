@@ -65,6 +65,11 @@ void Paladin::equipFromInventory(const int indexItem) {
 
 }
 
+void Hero::attackMonster(Hero *hero, Monster *monster) {
+    monster->setHealth(monster->getHealth()-hero->getAttack());
+    monster->isMonsterDead(hero);
+}
+
 string Paladin::showStats() const {
     int attack = m_attack;
     int defense = m_defense;
