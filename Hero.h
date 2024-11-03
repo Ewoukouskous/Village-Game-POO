@@ -12,7 +12,8 @@
 #include "PotionHeal.h"
 #include "PotionStrength.h"
 #include "PotionDefense.h"
-#include "Monster.h"
+
+class Monster;
 
 // La classe abstraite 'Hero' a pour enfant :
 // - 'Warrior' : Peut uniquement équiper une arme 'Sword', pas de 'Shield'
@@ -22,6 +23,8 @@
 //
 // - 'Wizard' : Peut uniquement équiper une arme 'Wand', pas de 'Shield'
 // et a une chance d'esquive de 20% ('m_dodge = 20')
+
+using namespace std;
 
 class Hero {
 // Par défaut les héros ont pour attribut:
@@ -60,7 +63,7 @@ public:
 
     void drinkFromInventory(int indexItem);
 
-    void attackMonster(Hero *hero, Monster *monster);
+    void attackMonster(Monster *monster);
 
     // Suite de strings contenant toutes les stats du héro
     virtual string showStats() const;

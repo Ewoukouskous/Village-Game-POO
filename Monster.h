@@ -5,7 +5,9 @@
 #ifndef MONSTER_H
 #define MONSTER_H
 
-#include "Hero.h"
+#include <iostream>
+
+class Hero;
 
 using namespace std;
 
@@ -22,6 +24,12 @@ public:
     int getHealth() const {
         return m_health;
     }
+    int getGold() const {
+        return m_gold;
+    }
+    int getAttack() const {
+        return m_attack;
+    }
 
         // SETTERS
     void setHealth(int health) {
@@ -35,11 +43,11 @@ public:
     virtual string showStats() const;
 
     // Méthode qui s'occupe d'attaquer le Hero
-    void attackHero(Hero *hero, Monster *monster) const;
+    void attackHero(Hero *hero);
     // Méthode appelée lors de l'attaque du Hero qui vérifie si le Hero dodge ou non
-    bool isAttackDodge(const Hero *hero);
+    bool isAttackDodge(Hero* hero);
     // Méthode qui va give les gold au Hero si le monstre est mort
-    void isMonsterDead(Hero *hero) const;
+    void isMonsterDead(Hero *hero, Monster *monster) const;
 };
 
 #endif //MONSTER_H

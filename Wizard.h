@@ -16,8 +16,6 @@ public:
     // Equiper une WAND provenant de l'inventaire
     void equipFromInventory(const int indexItem) override;
 
-
-
 };
 
 

@@ -6,13 +6,12 @@
 #define SLIME_H
 
 #include "Monster.h"
+#include "Hero.h"
 
 class Slime : public Monster{
 public:
     Slime();
     string showStats() const;
 };
-
-
 
 #endif //SLIME_H

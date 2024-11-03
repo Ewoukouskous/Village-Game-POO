@@ -3,9 +3,9 @@
 //
 
 #include "Hero.h"
+#include "Monster.h"
 
-
-// Les stats par défaut d'un hero
+    // Les stats par défaut d'un hero
 Hero::Hero(const string &name) {
     m_name = name;
     m_health = 100;
@@ -79,9 +79,12 @@ void Hero::drinkFromInventory(const int indexItem) {
     cout << "The choosen item isn't a potion" << endl;
 }
 
-void Hero::attackMonster(Hero *hero, Monster *monster) {
-    monster->setHealth(monster->getHealth()-hero->getAttack());
-    monster->isMonsterDead(hero);
+void Hero::attackMonster(Monster *monster) {
+    monster->setHealth(monster->getHealth()-getAttack());
+    if (monster->getHealth() <= 0) {
+        setGold(monster->getGold() + getGold());
+        delete monster;
+    }
 }
 
 

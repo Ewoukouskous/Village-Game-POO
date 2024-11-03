@@ -39,7 +39,3 @@ void Wizard::equipFromInventory(const int indexItem) {
     cout << "Vous avez equipe " << m_weapon->getName()<<endl;
 }
 
-void Hero::attackMonster(Hero *hero, Monster *monster) {
-    monster->setHealth(monster->getHealth()-hero->getAttack());
-    monster->isMonsterDead(hero);
-}

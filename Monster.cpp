@@ -3,6 +3,7 @@
 //
 
 #include "Monster.h"
+#include "Hero.h"
 
 Monster::Monster() {
     m_name = "";
@@ -26,20 +27,20 @@ string Monster::showStats() const {
     return str;
 }
 
-void Monster::attackHero(Hero *hero, Monster *monster) const {
-    const int monsterAttack = m_attack;
+void Monster::attackHero(Hero *hero) {
+    const int monsterAttack = getAttack();
     int heroHealth = hero->getHealth();
 
     if (isAttackDodge(hero) == false) {
         heroHealth -= monsterAttack;
+        hero->setHealth(heroHealth);
         if (heroHealth <= 0) {
             cout << "Hero is dead" << endl; // Remplacer par gameOver
         }
     }
-    hero->setHealth(heroHealth);
 }
 
-bool Monster::isAttackDodge(const Hero *hero) {
+bool Monster::isAttackDodge(Hero *hero) {
     // Genération d'un nombre aléatoire qui vas s'occuper du dodge
         // Initialiser la graine du générateur aléatoire
     srand(static_cast<unsigned int>(time(nullptr)));
@@ -52,12 +53,4 @@ bool Monster::isAttackDodge(const Hero *hero) {
         return true;
     }
     return false;
-}
-
-void Monster::isMonsterDead(Hero *hero, Monster *monster) const {
-    if (m_health < 0) {
-        cout << "Monster is dead" << endl;
-        hero->setGold(m_gold);
-        ~Monster(monster);
-    }
 }
