@@ -38,21 +38,25 @@ public:
                 system ("cls");
                 cout << "WIP : Remove from Inventory" << endl;
                 break;
-            case 4: // Equip From Inventory
+            case 4:
+                system ("cls");
+                m_hero->storeWeapon();
+                break;
+            case 5: // Equip From Inventory
                 system ("cls");
                 cout << m_hero->getInventory() << endl;
                 cout << "Please enter the index of the Weapon you want to equip" << endl;
                 cin >> index;
                 m_hero->equipFromInventory(index);
                 break;
-            case 5: // Remove From Inventory
+            case 6: // Remove From Inventory
                 system ("cls");
                 cout << m_hero->getInventory() << endl;
                 cout << "Please enter the index of the Potion you want to drink" << endl;
                 cin >> index;
                 m_hero->drinkFromInventory(index);
                 break;
-            case 6 : // Return to the Hero's Menu
+            case 7 : // Return to the Hero's Menu
                 system ("cls");
                 return make_unique<HeroMenu>(m_hero);
             default :
