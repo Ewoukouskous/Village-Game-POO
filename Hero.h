@@ -47,6 +47,8 @@ public:
     void introduceHimself() const;
     // Methode virtuelle pure pour équiper une arme (Les classes aurons certaines restrictions)
     virtual void equipWeapon(Weapon* ptr_weapon) = 0;
+    // Range l'arme dans l'inventaire et la désequippe (si il reste de la place)
+    void storeWeapon();
     // Supprime et DETRUIT l'arme équipée par le hero
     void dropWeapon();
     // Methode virtuelle pure qui permet d'équiper une arme ou bouclier depuis l'inventaire

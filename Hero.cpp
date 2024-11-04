@@ -20,6 +20,18 @@ void Hero::introduceHimself() const {
     cout << "Hello im " << m_name << " and im a " << m_type << endl;
 }
 
+void Hero::storeWeapon() {
+    // S'il reste au moins UNE place dans l'inventaire on peut ranger l'arme à l'intérieur
+    if (m_inventory->getInventorySize() > 9) {
+        cout << "Your inventory is full, you can't store your weapon in it." << endl;
+        return;
+    }
+    addToInventory(m_weapon);
+    cout << "You have just put your " << m_weapon->getName() <<" in your inventory" <<endl;
+    m_weapon = nullptr;
+    }
+
+
 
 // Supprime le pointeur Weapon* que le hero a équipé et DETRUIT le 'WEAPON'
 void Hero::dropWeapon() {
