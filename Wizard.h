@@ -16,6 +16,11 @@ public:
     // Equiper une WAND provenant de l'inventaire
     void equipFromInventory(const int indexItem) override;
 
+    // GETTERS
+    string getType() const override {
+        return "Wizard";
+    }
+
 };
 
 
