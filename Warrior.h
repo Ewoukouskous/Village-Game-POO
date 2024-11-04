@@ -17,8 +17,8 @@ public:
     void equipFromInventory(const int indexItem) override;
 
     // GETTERS
-    string getType() const override {
-        return "Warrior";
+    const string& getType() const override {
+        return m_type;
     }
 };
 

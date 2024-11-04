@@ -6,6 +6,7 @@
 
 // La classe 'WARRIOR' a 50% plus d'attaque que les autres classes
 Warrior::Warrior(const string &name) : Hero(name) {
+    m_type = "Warrior";
     m_attack = m_attack*(1+(50.0/100));
 }
 

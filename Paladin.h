@@ -34,8 +34,8 @@ public:
         return defense;
     }
 
-    string getType() const override {
-        return "Paladin";
+    const string& getType() const override {
+        return m_type;
     }
 
 };
