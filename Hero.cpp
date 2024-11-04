@@ -102,3 +102,14 @@ string Hero::showStats() const {
     + "Gold : " + to_string(m_gold) + " |\n";
     return str;
 }
+
+vector<string> Hero::getBasicActions() const {
+    vector<string> actions = {"Introduce Yourself","Inventory","Travel","Show Stats"};
+    return actions;
+}
+
+vector<string> Hero::getInventoryActions() const {
+    vector<string> actions = {"Show Inventory","Add to inventory","Remove From Inventory","Equip from inventory","Drink from inventory"};
+    return actions;
+}
+

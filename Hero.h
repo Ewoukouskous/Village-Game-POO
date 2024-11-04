@@ -110,6 +110,11 @@ public:
     string getInventory() const {
         return m_inventory->getInventoryList();
     }
+
+    // Contain all the Hero basic actions
+    virtual vector<string> getBasicActions() const;
+    // Contain all the Inventory related actions
+    vector<string> getInventoryActions() const;
 };
 
 
