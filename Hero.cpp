@@ -20,12 +20,18 @@ void Hero::introduceHimself() const {
     cout << "Hello im " << m_name << " and im a " << m_type << endl;
 }
 
+// Stocke l'arme actuelle dans l'inventaire
 void Hero::storeWeapon() {
-    // S'il reste au moins UNE place dans l'inventaire on peut ranger l'arme à l'intérieur
+    if (m_weapon==nullptr) {
+        cout << "You doesn't have any weapon equipped" << endl;
+        return;
+    }
+    // S'il reste au moins d'UNE place dans l'inventaire on ne peut pas ranger l'arme à l'intérieur
     if (m_inventory->getInventorySize() > 9) {
         cout << "Your inventory is full, you can't store your weapon in it." << endl;
         return;
     }
+    // Si une place est restante on ajoute l'arme dans l'inventaire, puis on la désequippe
     addToInventory(m_weapon);
     cout << "You have just put your " << m_weapon->getName() <<" in your inventory" <<endl;
     m_weapon = nullptr;
