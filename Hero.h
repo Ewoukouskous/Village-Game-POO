@@ -75,6 +75,9 @@ public:
     const string& getName() const {
         return m_name;
     }
+
+    virtual const string& getType() const = 0;
+
     const int& getHealth() const {
         return m_health;
     }
