@@ -16,6 +16,11 @@ Hero::Hero(const string &name) {
     m_inventory = new Inventory();
 }
 
+void Hero::introduceHimself() const {
+    cout << "Hello im " << m_name << " and im a " << m_type << endl;
+}
+
+
 // Supprime le pointeur Weapon* que le hero a équipé et DETRUIT le 'WEAPON'
 void Hero::dropWeapon() {
     delete m_weapon;
@@ -97,4 +102,3 @@ string Hero::showStats() const {
     + "Gold : " + to_string(m_gold) + " |\n";
     return str;
 }
-

@@ -3,7 +3,9 @@
 //
 
 #include "Paladin.h"
-Paladin::Paladin(const string &name) : Hero(name) {}
+Paladin::Paladin(const string &name) : Hero(name) {
+    m_type = "Paladin";
+}
 
 // Override de la fonction, un PALADIN peut uniquement équiper des SWORD en arme
 void Paladin::equipWeapon(Weapon* ptr_sword) {
