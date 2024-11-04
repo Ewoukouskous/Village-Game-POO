@@ -114,9 +114,9 @@ public:
     }
 
     // Contain all the Hero basic actions
-    virtual vector<string> getBasicActions() const;
+    vector<string> getBasicActions() const;
     // Contain all the Inventory related actions
-    vector<string> getInventoryActions() const;
+    virtual vector<string> getInventoryActions() const;
 };
 
 

@@ -37,6 +37,24 @@ void Paladin::equipShield(Shield* ptr_shield) {
     cout << "Vous avez equiper un 'SHIELD'" << endl;
 
 }
+
+// Stocke le shield actuel dans l'inventaire
+void Paladin::storeShield() {
+    if (m_shield==nullptr) {
+        cout << "You doesn't have any shield equipped" << endl;
+        return;
+    }
+    // S'il reste moins d'UNE place dans l'inventaire on ne peut pas ranger le shield à l'intérieur
+    if (m_inventory->getInventorySize() > 9) {
+        cout << "Your inventory is full, you can't store your shield in it." << endl;
+        return;
+    }
+    // Si une place est restante on ajoute le shield dans l'inventaire, puis on le désequippe
+    addToInventory(m_shield);
+    cout << "You have just put your " << m_shield->getName() <<" in your inventory" <<endl;
+    m_shield = nullptr;
+}
+
 // Supprime le pointeur Shield* que le hero a équipé et DETRUIT le 'SHIELD'
 void Paladin::dropShield() {
     delete m_shield;
@@ -85,5 +103,11 @@ string Paladin::showStats() const {
     + "Dodge : " + to_string(m_dodge) + " | "
     + "Gold : " + to_string(getGold()) + " |\n";
     return str;
+}
+
+
+vector<string> Paladin::getInventoryActions() const {
+    vector<string> actions = {"Show Inventory","Add to inventory","Remove From Inventory","Store current weapon","Store current shield","Equip from inventory","Drink from inventory"};
+    return actions;
 }
 

@@ -25,43 +25,89 @@ public:
 
     unique_ptr<Menu> handleChoice(int choice) override {
         int index = 0;
-        switch (choice) {
-            case 1: // Show Inventory
-                system ("cls");
+        if (dynamic_cast<Paladin*>(m_hero)) {
+            Paladin* paladin = dynamic_cast<Paladin*>(m_hero);
+            switch (choice) {
+                case 1: // Show Inventory
+                    system ("cls");
                 cout << m_hero->getInventory() << endl;
                 break;
-            case 2: // Add to Inventory
-                system ("cls");
+                case 2: // Add to Inventory
+                    system ("cls");
                 cout << "WIP : Add to Inventory" << endl;
                 break;
-            case 3: // Remove from Inventory
-                system ("cls");
+                case 3: // Remove from Inventory
+                    system ("cls");
                 cout << "WIP : Remove from Inventory" << endl;
                 break;
-            case 4:
-                system ("cls");
+                case 4: // Store current weapon
+                    system ("cls");
                 m_hero->storeWeapon();
                 break;
-            case 5: // Equip From Inventory
-                system ("cls");
+                case 5:
+                    system ("cls");
+                    paladin->storeShield();
+                    break;
+                case 6: // Equip From Inventory
+                    system ("cls");
                 cout << m_hero->getInventory() << endl;
                 cout << "Please enter the index of the Weapon you want to equip" << endl;
                 cin >> index;
                 m_hero->equipFromInventory(index);
                 break;
-            case 6: // Remove From Inventory
-                system ("cls");
+                case 7: // Remove From Inventory
+                    system ("cls");
                 cout << m_hero->getInventory() << endl;
                 cout << "Please enter the index of the Potion you want to drink" << endl;
                 cin >> index;
                 m_hero->drinkFromInventory(index);
                 break;
-            case 7 : // Return to the Hero's Menu
-                system ("cls");
+                case 8 : // Return to the Hero's Menu
+                    system ("cls");
                 return make_unique<HeroMenu>(m_hero);
-            default :
-                cout << "Bad choice .... " <<endl;
+                default :
+                    cout << "Bad choice .... " <<endl;
+            }
+        }
+        else {
+            switch (choice) {
+                case 1: // Show Inventory
+                    system ("cls");
+                cout << m_hero->getInventory() << endl;
+                break;
+                case 2: // Add to Inventory
+                    system ("cls");
+                cout << "WIP : Add to Inventory" << endl;
+                break;
+                case 3: // Remove from Inventory
+                    system ("cls");
+                cout << "WIP : Remove from Inventory" << endl;
+                break;
+                case 4: // Store current weapon
+                    system ("cls");
+                m_hero->storeWeapon();
+                break;
+                case 5: // Equip From Inventory
+                    system ("cls");
+                cout << m_hero->getInventory() << endl;
+                cout << "Please enter the index of the Weapon you want to equip" << endl;
+                cin >> index;
+                m_hero->equipFromInventory(index);
+                break;
+                case 6: // Remove From Inventory
+                    system ("cls");
+                cout << m_hero->getInventory() << endl;
+                cout << "Please enter the index of the Potion you want to drink" << endl;
+                cin >> index;
+                m_hero->drinkFromInventory(index);
+                break;
+                case 7 : // Return to the Hero's Menu
+                    system ("cls");
+                return make_unique<HeroMenu>(m_hero);
+                default :
+                    cout << "Bad choice .... " <<endl;
 
+            }
         }
         return nullptr;
     }
