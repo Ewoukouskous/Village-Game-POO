@@ -40,7 +40,15 @@ add_executable(TP_leVillage main.cpp
         PotionStrength.cpp
         PotionStrength.h
         PotionDefense.cpp
-        PotionDefense.h)
+        PotionDefense.h
+        Menu.cpp
+        Menu.h
+        HeroMenu.cpp
+        HeroMenu.h
+        MenuManager.cpp
+        MenuManager.h
+        InventoryMenu.h
+)
 target_link_libraries(TP_leVillage
         Qt::Core
 )
