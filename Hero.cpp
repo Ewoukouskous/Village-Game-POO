@@ -26,7 +26,7 @@ void Hero::storeWeapon() {
         cout << "You doesn't have any weapon equipped" << endl;
         return;
     }
-    // S'il reste au moins d'UNE place dans l'inventaire on ne peut pas ranger l'arme à l'intérieur
+    // S'il reste moins d'UNE place dans l'inventaire on ne peut pas ranger l'arme à l'intérieur
     if (m_inventory->getInventorySize() > 9) {
         cout << "Your inventory is full, you can't store your weapon in it." << endl;
         return;
