@@ -41,6 +41,10 @@ unique_ptr<Menu> HeroMenu::handleChoice(int choice) {
                 system("cls");
             cout << m_hero->showStats() << endl;
             break;
+            case 0 :
+                system("cls");
+                cout << "You can't backward in this menu" << endl;
+                break;
             default:
                 cout << "Bad Choice ..." << endl;
             break;

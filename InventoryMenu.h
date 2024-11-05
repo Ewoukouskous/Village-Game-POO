@@ -15,11 +15,9 @@ public:
     // 2. Add To Inventory
     // 3. Remove From Inventory
     // etc...
-    // lastOne. Return to the hero's menu
     InventoryMenu(Hero* hero) : Menu(hero)
         {m_title = m_hero->getName() + "'s Inventory";
-        m_options = m_hero->getInventoryActions();
-        m_options.push_back("Return to the Hero's Menu");}
+        m_options = m_hero->getInventoryActions();}
 
 
 
@@ -63,9 +61,10 @@ public:
                     cin >> index;
                     m_hero->drinkFromInventory(index);
                     break;
-                case 7 : // Return to the Hero's Menu
+                case 0 : // Return to the Hero's Menu
                     system ("cls");
-                    return make_unique<HeroMenu>(m_hero);
+                    // return make_unique<HeroMenu>(m_hero);
+                    break;
                 default :
                     cout << "Bad choice .... " <<endl;
             }
@@ -102,9 +101,9 @@ public:
                     cin >> index;
                     m_hero->drinkFromInventory(index);
                     break;
-                case 6 : // Return to the Hero's Menu
+                case 0 : // Return to the Hero's Menu
                     system ("cls");
-                    return make_unique<HeroMenu>(m_hero);
+                    // return make_unique<HeroMenu>(m_hero);
                 default :
                     cout << "Bad choice .... " <<endl;
 

@@ -18,5 +18,5 @@ void Menu::display() {
     for (size_t i = 0; i < (m_title.size()+6); i++) {
         cout << "-";
     }
-    cout << "\nChoose an option from [1 to "<< m_options.size() << "]"<< endl;
+    cout << "\nChoose an option from [1 to "<< m_options.size() << "] or enter '0' to backward"<< endl;
 }

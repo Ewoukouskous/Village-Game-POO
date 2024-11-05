@@ -20,7 +20,12 @@ void MenuManager::displayAndHandle() {
         // if handleChoice return anything else than a nullptr the currentMenu
         // will be the correspondant sub-Menu
         if (newMenu != nullptr) {
+            menuStack.push(move(currentMenu));
             currentMenu = move(newMenu);
+        }
+        else if (choice == 0 && !menuStack.empty()) {
+            currentMenu = move(menuStack.top());
+            menuStack.pop();
         }
     }
 }
