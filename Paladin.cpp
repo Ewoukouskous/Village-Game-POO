@@ -107,7 +107,7 @@ string Paladin::showStats() const {
 
 
 vector<string> Paladin::getInventoryActions() const {
-    vector<string> actions = {"Show Inventory","Add to inventory","Remove From Inventory","Store current weapon","Store current shield","Equip from inventory","Drink from inventory"};
+    vector<string> actions = {"Show Inventory","Remove From Inventory","Store current weapon","Store current shield","Equip from inventory","Drink from inventory"};
     return actions;
 }
 

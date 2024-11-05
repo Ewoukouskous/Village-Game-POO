@@ -30,41 +30,42 @@ public:
             switch (choice) {
                 case 1: // Show Inventory
                     system ("cls");
-                cout << m_hero->getInventory() << endl;
-                break;
-                case 2: // Add to Inventory
+                    cout << m_hero->getInventory() << endl;
+                    break;
+                case 2: // Remove from Inventory
                     system ("cls");
-                cout << "WIP : Add to Inventory" << endl;
+                    // cout << "WIP : Remove from Inventory" << endl;
+                    cout << m_hero->getInventory() << endl;
+                    cout << "Please enter the index of the item you want to delete" << endl;
+                    cin >> index;
+                    m_hero->removeFromInventory(index);
                 break;
-                case 3: // Remove from Inventory
+                    break;
+                case 3: // Store current weapon
                     system ("cls");
-                cout << "WIP : Remove from Inventory" << endl;
-                break;
-                case 4: // Store current weapon
-                    system ("cls");
-                m_hero->storeWeapon();
-                break;
-                case 5:
+                    m_hero->storeWeapon();
+                    break;
+                case 4: // Store current shield
                     system ("cls");
                     paladin->storeShield();
                     break;
-                case 6: // Equip From Inventory
+                case 5: // Equip From Inventory
                     system ("cls");
-                cout << m_hero->getInventory() << endl;
-                cout << "Please enter the index of the Weapon you want to equip" << endl;
-                cin >> index;
-                m_hero->equipFromInventory(index);
-                break;
-                case 7: // Remove From Inventory
+                    cout << m_hero->getInventory() << endl;
+                    cout << "Please enter the index of the Weapon you want to equip" << endl;
+                    cin >> index;
+                    m_hero->equipFromInventory(index);
+                    break;
+                case 6: // Drink From Inventory
                     system ("cls");
-                cout << m_hero->getInventory() << endl;
-                cout << "Please enter the index of the Potion you want to drink" << endl;
-                cin >> index;
-                m_hero->drinkFromInventory(index);
-                break;
-                case 8 : // Return to the Hero's Menu
+                    cout << m_hero->getInventory() << endl;
+                    cout << "Please enter the index of the Potion you want to drink" << endl;
+                    cin >> index;
+                    m_hero->drinkFromInventory(index);
+                    break;
+                case 7 : // Return to the Hero's Menu
                     system ("cls");
-                return make_unique<HeroMenu>(m_hero);
+                    return make_unique<HeroMenu>(m_hero);
                 default :
                     cout << "Bad choice .... " <<endl;
             }
@@ -73,37 +74,37 @@ public:
             switch (choice) {
                 case 1: // Show Inventory
                     system ("cls");
-                cout << m_hero->getInventory() << endl;
-                break;
-                case 2: // Add to Inventory
+                    cout << m_hero->getInventory() << endl;
+                    break;
+                case 2: // Remove from Inventory
                     system ("cls");
-                cout << "WIP : Add to Inventory" << endl;
-                break;
-                case 3: // Remove from Inventory
+                    // cout << "WIP : Remove from Inventory" << endl;
+                    cout << m_hero->getInventory() << endl;
+                    cout << "Please enter the index of the item you want to delete" << endl;
+                    cin >> index;
+                    m_hero->removeFromInventory(index);
+                    break;
+                case 3: // Store current weapon
                     system ("cls");
-                cout << "WIP : Remove from Inventory" << endl;
-                break;
-                case 4: // Store current weapon
+                    m_hero->storeWeapon();
+                    break;
+                case 4: // Equip From Inventory
                     system ("cls");
-                m_hero->storeWeapon();
-                break;
-                case 5: // Equip From Inventory
+                    cout << m_hero->getInventory() << endl;
+                    cout << "Please enter the index of the Weapon you want to equip" << endl;
+                    cin >> index;
+                    m_hero->equipFromInventory(index);
+                    break;
+                case 5: // Remove From Inventory
                     system ("cls");
-                cout << m_hero->getInventory() << endl;
-                cout << "Please enter the index of the Weapon you want to equip" << endl;
-                cin >> index;
-                m_hero->equipFromInventory(index);
-                break;
-                case 6: // Remove From Inventory
+                    cout << m_hero->getInventory() << endl;
+                    cout << "Please enter the index of the Potion you want to drink" << endl;
+                    cin >> index;
+                    m_hero->drinkFromInventory(index);
+                    break;
+                case 6 : // Return to the Hero's Menu
                     system ("cls");
-                cout << m_hero->getInventory() << endl;
-                cout << "Please enter the index of the Potion you want to drink" << endl;
-                cin >> index;
-                m_hero->drinkFromInventory(index);
-                break;
-                case 7 : // Return to the Hero's Menu
-                    system ("cls");
-                return make_unique<HeroMenu>(m_hero);
+                    return make_unique<HeroMenu>(m_hero);
                 default :
                     cout << "Bad choice .... " <<endl;
 

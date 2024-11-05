@@ -127,7 +127,7 @@ vector<string> Hero::getBasicActions() const {
 }
 
 vector<string> Hero::getInventoryActions() const {
-    vector<string> actions = {"Show Inventory","Add to inventory","Remove From Inventory","Store current weapon","Equip from inventory","Drink from inventory"};
+    vector<string> actions = {"Show Inventory","Remove From Inventory","Store current weapon","Equip from inventory","Drink from inventory"};
     return actions;
 }
 
