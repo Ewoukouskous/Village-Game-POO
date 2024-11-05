@@ -3,6 +3,8 @@
 //
 
 #include "MenuManager.h"
+
+#include <limits>
 // MenuManager allow the user to navigate through others menu and make them display
 // the different actions possibles
 
@@ -14,6 +16,21 @@ void MenuManager::displayAndHandle() {
     while (true) {
         currentMenu->display();
         cin >> choice;
+        // Check if the user enter a valid action (if he enter a letter it will ask him to ask valid entry
+        // and same if he enter input less than 0 or more than the possible actions)
+        if (cin.fail() || choice < 0 || choice > currentMenu->getOptionsSize()) {
+            cin.clear(); // Réinitialise l'état d'erreur
+            cin.ignore(10000,'\n'); // Ignore l'entrée incorrecte
+            system("cls");
+            cout << "Please enter a valid action" << endl;
+            continue; // Recommence la boucle pour demander à nouveau l'entrée
+        }
+
+        while (choice < 0 || choice > currentMenu->getOptionsSize()) {
+            cin.clear();
+            cout << "Please enter a valid choice" << endl;
+            cin >> choice;
+        }
 
         // handleChoice will return a sub-menu pointer or a nullptr
         unique_ptr<Menu> newMenu = currentMenu->handleChoice(choice);
