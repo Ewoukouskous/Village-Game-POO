@@ -30,6 +30,12 @@ public:
     int getAttack() const {
         return m_attack;
     }
+    string getName() const {
+        return m_name;
+    }
+    int getDefense() const {
+        return m_defense;
+    }
 
         // SETTERS
     void setHealth(int health) {

@@ -65,6 +65,8 @@ public:
 
     void attackMonster(Monster *monster);
 
+    virtual void beingHit(int mobAttack);
+
     // Suite de strings contenant toutes les stats du héro
     virtual string showStats() const;
 

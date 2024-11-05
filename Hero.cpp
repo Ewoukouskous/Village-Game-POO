@@ -80,10 +80,23 @@ void Hero::drinkFromInventory(const int indexItem) {
 }
 
 void Hero::attackMonster(Monster *monster) {
-    monster->setHealth(monster->getHealth()-getAttack());
-    if (monster->getHealth() <= 0) {
-        setGold(monster->getGold() + getGold());
-        delete monster;
+    int globalAttack = getAttack() - monster->getDefense();
+    cout << globalAttack << endl;
+    if (globalAttack < 0) {
+        cout << "you are so weak you did 0 damage ( noob )" << endl;
+    } else {
+        monster->setHealth(monster->getHealth()-globalAttack);
+        cout << getName() << " deal " << globalAttack << " damage to " << monster->getName() << endl;
+        cout << monster->getName() << " have now "<< monster->getHealth()<< " hp" << endl;
+        if (monster->getHealth() <= 0) {
+            cout << monster->getName() << " is now dead" << endl;
+            setGold(monster->getGold() + getGold());
+            delete monster;
+        }
+    }
+    if (m_weapon != nullptr) {
+        cout <<
+        m_weapon->use();
     }
 }
 
@@ -104,3 +117,10 @@ string Hero::showStats() const {
     return str;
 }
 
+void Hero::beingHit(int mobAttack) {
+    cout << "You receive " << mobAttack << " damages" << endl;
+    if (getHealth() <= 0) {
+        cout << "Hero dead" << endl;
+        // add GameOver
+    }
+}
