@@ -18,6 +18,8 @@ public:
     void equipWeapon(Weapon* ptr_sword) override;
     // Equiper un SHIELD
     void equipShield(Shield* ptr_shield);
+    // Range l'arme dans l'inventaire et la désequippe (si il reste de la place)
+    void storeShield();
     // Supprime et DETRUIT le SHIELD équipé par le hero
     void dropShield();
     // Equiper un SHIELD ou une SWORD provenant de l'inventaire
@@ -35,6 +37,10 @@ public:
             defense += m_shield->getDefense();
         }
         return defense;
+    }
+
+    const string& getType() const override {
+        return m_type;
     }
 
 };

@@ -6,6 +6,7 @@
 
 // La classe 'WIZARD' a 20 point de DODGE par défaut
 Wizard::Wizard(const string &name) : Hero(name) {
+    m_type = "Wizard";
     m_dodge = 20;
 }
 

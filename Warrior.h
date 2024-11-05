@@ -16,6 +16,10 @@ public:
     // Equiper une SWORD provenant de l'inventaire
     void equipFromInventory(const int indexItem) override;
 
+    // GETTERS
+    const string& getType() const override {
+        return m_type;
+    }
 };
 
 
