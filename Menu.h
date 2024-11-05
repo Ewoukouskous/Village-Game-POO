@@ -26,6 +26,9 @@ public:
 
     virtual void display();
     virtual unique_ptr<Menu> handleChoice(int choice) = 0;
+    unsigned long getOptionsSize() const {
+        return m_options.size();
+    }
 };
 
 
