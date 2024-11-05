@@ -3,9 +3,9 @@
 //
 
 #include "Hero.h"
+#include "Monster.h"
 
-
-// Les stats par défaut d'un hero
+    // Les stats par défaut d'un hero
 Hero::Hero(const string &name) {
     m_name = name;
     m_health = 100;
@@ -44,7 +44,6 @@ void Hero::dropWeapon() {
     delete m_weapon;
     m_weapon = nullptr;
 }
-
 
 // Ajoute un pointeur d'item dans l'inventaire
 void Hero::addToInventory(Item *ptr_item) const {
@@ -103,6 +102,26 @@ void Hero::drinkFromInventory(const int indexItem) {
     cout << "The choosen item isn't a potion" << endl;
 }
 
+void Hero::attackMonster(Monster *monster) {
+    int globalAttack = getAttack() - monster->getDefense();
+    cout << globalAttack << endl;
+    if (globalAttack < 0) {
+        cout << "you are so weak you did 0 damage ( noob )" << endl;
+    } else {
+        monster->setHealth(monster->getHealth()-globalAttack);
+        cout << getName() << " deal " << globalAttack << " damage to " << monster->getName() << endl;
+        cout << monster->getName() << " have now "<< monster->getHealth()<< " hp" << endl;
+        if (monster->getHealth() <= 0) {
+            cout << monster->getName() << " is now dead" << endl;
+            setGold(monster->getGold() + getGold());
+            delete monster;
+        }
+    }
+    if (m_weapon != nullptr) {
+        cout <<
+        m_weapon->use();
+    }
+}
 
 
 // Permet de lister toutes les stats d'un héro
@@ -119,4 +138,12 @@ string Hero::showStats() const {
     + "Dodge : " + to_string(m_dodge) + " | "
     + "Gold : " + to_string(m_gold) + " |\n";
     return str;
+}
+
+void Hero::beingHit(int mobAttack) {
+    cout << "You receive " << mobAttack << " damages" << endl;
+    if (getHealth() <= 0) {
+        cout << "Hero dead" << endl;
+        // add GameOver
+    }
 }

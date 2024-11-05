@@ -40,4 +40,3 @@ void Warrior::equipFromInventory(const int indexItem) {
     m_weapon = m_inventory->equipSword(indexItem);
     cout << "Vous avez equipe " << m_weapon->getName() << endl;
 }
-

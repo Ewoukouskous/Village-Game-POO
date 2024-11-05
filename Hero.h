@@ -13,6 +13,8 @@
 #include "PotionStrength.h"
 #include "PotionDefense.h"
 
+class Monster;
+
 // La classe abstraite 'Hero' a pour enfant :
 // - 'Warrior' : Peut uniquement équiper une arme 'Sword', pas de 'Shield'
 // et possède 50% en plus de 'm_attack'
@@ -21,6 +23,8 @@
 //
 // - 'Wizard' : Peut uniquement équiper une arme 'Wand', pas de 'Shield'
 // et a une chance d'esquive de 20% ('m_dodge = 20')
+
+using namespace std;
 
 class Hero {
 // Par défaut les héros ont pour attribut:
@@ -58,9 +62,13 @@ public:
     // Ajoute un pointeur d'item dans l'inventaire
     void addToInventory(Item* ptr_item) const;
     // On supprime et detruit un objet de l'inventaire
-    void removeFromInventory(const int indexItem) const;
+    void removeFromInventory(int indexItem) const;
 
-    void drinkFromInventory(const int indexItem);
+    void drinkFromInventory(int indexItem);
+
+    void attackMonster(Monster *monster);
+
+    virtual void beingHit(int mobAttack);
 
     // Suite de strings contenant toutes les stats du héro
     virtual string showStats() const;
@@ -72,6 +80,9 @@ public:
     }
     void setGold(int gold) {
         m_gold = gold;
+    }
+    void setAttack(int attack) {
+        m_attack = attack;
     }
 
     // Getters
@@ -98,6 +109,7 @@ public:
         }
         return attack;
     }
+
     const int& getDodge() const {
         return m_dodge;
     }
