@@ -15,8 +15,9 @@ private:
     Building shop{"shop"};
     Building cave{"cave"};
 
-public:
     vector<Building> m_village;
+
+public:
 
     Village(const string &name);
 
