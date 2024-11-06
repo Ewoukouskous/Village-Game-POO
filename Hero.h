@@ -13,6 +13,8 @@
 #include "PotionStrength.h"
 #include "PotionDefense.h"
 
+class Monster;
+
 // La classe abstraite 'Hero' a pour enfant :
 // - 'Warrior' : Peut uniquement équiper une arme 'Sword', pas de 'Shield'
 // et possède 50% en plus de 'm_attack'
@@ -60,7 +62,9 @@ public:
     // On supprime et detruit un objet de l'inventaire
     void removeFromInventory(const int indexItem) const;
 
-    void drinkFromInventory(const int indexItem);
+    void attackMonster(Monster *monster);
+
+    virtual void beingHit(int mobAttack);
 
     // Suite de strings contenant toutes les stats du héro
     virtual string showStats() const;
@@ -72,6 +76,9 @@ public:
     }
     void setGold(int gold) {
         m_gold = gold;
+    }
+    void setAttack(int attack) {
+        m_attack = attack;
     }
 
     // Getters
