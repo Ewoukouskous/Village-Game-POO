@@ -105,8 +105,8 @@ void Hero::drinkFromInventory(const int indexItem) {
 void Hero::attackMonster(Monster *monster) {
     int globalAttack = getAttack() - monster->getDefense();
     cout << globalAttack << endl;
-    if (globalAttack < 0) {
-        cout << "you are so weak you did 0 damage ( noob )" << endl;
+    if (globalAttack <= 0) {
+        cout << "You are so weak you did 0 damage ( noob )" << endl;
     } else {
         monster->setHealth(monster->getHealth()-globalAttack);
         cout << getName() << " deal " << globalAttack << " damage to " << monster->getName() << endl;

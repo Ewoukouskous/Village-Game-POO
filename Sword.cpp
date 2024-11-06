@@ -19,7 +19,6 @@ int Sword::use() {
         return m_damage;
     }
     m_durability --;
-    cout << "You swing that sword" << endl;
     if (m_durability <= 0) {
         weaponBreak();
     }
