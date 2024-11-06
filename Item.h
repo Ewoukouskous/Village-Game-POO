@@ -18,6 +18,7 @@ public:
 
     Item(const string &name, const int &price);
     virtual string getType() = 0 ;
+    virtual string getItemInfos() = 0;
     virtual int use() = 0 ;
     // GETTERS
     const string & getName() const {

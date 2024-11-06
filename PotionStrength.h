@@ -17,6 +17,10 @@ public:
     string getType() override {
         return m_potionType;
     }
+    string getItemInfos() {
+        string str = "| " + m_name + " | Effect : +" + to_string(m_effect) + "SP | Price : " + to_string(m_price) + "|";
+        return str;
+    }
 };
 
 

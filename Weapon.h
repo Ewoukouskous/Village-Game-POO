@@ -23,6 +23,10 @@ public:
     const string & getWeaponType() const {
         return m_weaponType;
     }
+    string getItemInfos() {
+        string str = "| " + m_name + " | Damage : " + to_string(m_damage) + " | Durability : " + to_string(m_durability) + " | Price : " + to_string(m_price) + "|";
+        return str;
+    }
     const int & getDamage() const {
         return m_damage;
     }

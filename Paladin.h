@@ -6,6 +6,7 @@
 #define PALADIN_H
 
 #include "Hero.h"
+#include "Monster.h"
 
 class Paladin : public Hero {
 private:
@@ -26,6 +27,11 @@ public:
 
     string showStats() const override;
 
+    // Contain all the Inventory related actions
+    vector<string> getInventoryActions() const override;
+
+    virtual void beingHit(int mobAttack) const;
+
     // GETTERS
     int getDefense() const override {
         // La défense dépendra du SHIELD équipé
@@ -39,8 +45,6 @@ public:
     const string& getType() const override {
         return m_type;
     }
-    // Contain all the Inventory related actions
-    vector<string> getInventoryActions() const override;
 
 };
 

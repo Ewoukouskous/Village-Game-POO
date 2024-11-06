@@ -32,6 +32,10 @@ public:
     const int& getDefense() const {
         return m_defense;
     }
+    string getItemInfos() {
+        string str = "| " + m_name + " | Defense : " + to_string(m_defense) + " | Durability : " + to_string(m_durability) + " | Price : " + to_string(m_price) + "|";
+        return str;
+    }
 };
 
 
