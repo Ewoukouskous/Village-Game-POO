@@ -1,8 +1,13 @@
+//
+// Created by ninol on 06/11/2024.
+//
+
 #ifndef VILLAGE_H
 #define VILLAGE_H
 
 #include <iostream>
 #include <vector>
+
 #include "Building.h"
 
 using namespace std;
@@ -10,26 +15,14 @@ using namespace std;
 class Village {
 private:
     string m_name;
-
-    Building hostel{"hostel"};
-    Building shop{"shop"};
-    Building cave{"cave"};
-
-    vector<Building> m_village;
-
+    vector<Building*> m_village;
 public:
+    Village(string name);
 
-    Village(const string &name);
+    string showBuilding();
 
-    void addBuildingToVector();
-    string showBuildings() const;
-
-    // GETTERS
-    string getName() const {
-        return m_name;
-    }
-    vector<Building> getBuildings() const {
-        return m_village;
+    Building* getBuilding(int index) {
+        return m_village[index];
     }
 };
 

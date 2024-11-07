@@ -46,7 +46,9 @@ add_executable(TP_leVillage main.cpp
         Zombie.cpp
         Dragon.cpp
         Village.cpp
-        Building.cpp)
+        Building.cpp
+        Hostel.cpp
+)
 target_link_libraries(TP_leVillage
         Qt::Core
 )

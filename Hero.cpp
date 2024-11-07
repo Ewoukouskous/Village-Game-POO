@@ -4,6 +4,7 @@
 
 #include "Hero.h"
 #include "Monster.h"
+#include "Building.h"
 
     // Les stats par défaut d'un hero
 Hero::Hero(const string &name) {
@@ -146,4 +147,13 @@ void Hero::beingHit(int mobAttack) {
         cout << "Hero dead" << endl;
         // add GameOver
     }
+}
+
+void Hero::travel(Building *ptr_building) {
+    setCurrentLocation(ptr_building);
+    cout << ptr_building->introduceBuilding() << endl;
+}
+
+void Hero::leave() {
+    setCurrentLocation(nullptr);
 }

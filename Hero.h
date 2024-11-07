@@ -12,6 +12,9 @@
 #include "PotionHeal.h"
 #include "PotionStrength.h"
 #include "PotionDefense.h"
+#include "Building.h"
+
+class Building;
 
 class Monster;
 
@@ -33,7 +36,7 @@ private:
     int m_health; // = 100
     int m_gold; // = 50
 
-// Les attributs pouvant être changé par en fonction de la classe:
+    // Les attributs pouvant être changé par en fonction de la classe:
 protected:
     string m_type;
     int m_attack; // Par défaut = 10 | 'Warrior' = +50%
@@ -41,6 +44,7 @@ protected:
     int m_dodge; // Par défaut = 0 | 'Wizard' = 20
     Weapon* m_weapon = nullptr; // Tous peuvent avoir une arme
     Inventory* m_inventory = nullptr; // Tous ont un inventaire (qui est crée via le constructeur)
+    Building* m_currentLocation = nullptr;
 
 public:
 
@@ -73,6 +77,10 @@ public:
     // Suite de strings contenant toutes les stats du héro
     virtual string showStats() const;
 
+    void travel(Building *ptr_building);
+
+    void leave();
+
 
     // SETTERS
     void setHealth(int health) {
@@ -83,6 +91,9 @@ public:
     }
     void setAttack(int attack) {
         m_attack = attack;
+    }
+    void setCurrentLocation(Building *ptr_location) {
+        m_currentLocation = ptr_location;
     }
 
     // Getters
@@ -124,8 +135,10 @@ public:
     string getInventory() const {
         return m_inventory->getInventoryList();
     }
+
+    Building* getCurrentLocation() const {
+        return m_currentLocation;
+    }
 };
-
-
 
 #endif //HERO_H

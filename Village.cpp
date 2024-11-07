@@ -1,25 +1,28 @@
+//
+// Created by ninol on 06/11/2024.
+//
+
 #include "Village.h"
 
-Village::Village(const string &name) : m_name(name) {
-    addBuildingToVector();
-}
+#include "Hostel.h"
 
-void Village::addBuildingToVector() {
-    // Ajouter directement les objets au vecteur
+Village::Village(string name) {
+    m_name = name;
+    Building *hostel = new Hostel();
+    // Building *shop = new Building();
+    // Building *cave = new Building();
+
     m_village.push_back(hostel);
-    m_village.push_back(shop);
-    m_village.push_back(cave);
 }
 
-string Village::showBuildings() const {
-    string names;
-    cout << "                  --- " << getName() << " ---" << endl;
+string Village::showBuilding() {
+    string result = "--- " + m_name + " --- \n";
     for (int i = 0; i < m_village.size(); i++) {
         if (i == m_village.size() - 1) {
-            names += "|[index " + to_string(i) + "]: " + m_village[i].getName() ;
+            result += "|[index " + to_string(i) + "]: " + m_village[i]->getName();
         } else {
-            names += "|[index " + to_string(i) + "]: " + m_village[i].getName() + " | ";
+            result += "|[index " + to_string(i) + "]: " + m_village[i]->getName() + "|  ";
         }
     }
-    return names;
+    return result;
 }
