@@ -6,34 +6,43 @@
 
 Hostel::Hostel(): Building("Hostel") {}
 
-void Hostel::sellHeal(int choice, Hero *hero) {
+void Hostel::sellHeal(int choice) {
 
     switch (choice) {
         case 1: {
-            if (hero->getGold() >= 15) {
-                if (hero->getHealth() + 25 >= 100) {
-                    hero->setHealth(100);
-                    hero->setGold(hero->getGold() - 15);
+            if (m_heroInside->getGold() >= 15) {
+                if (m_heroInside->getHealth() + 25 >= 100) {
+                    m_heroInside->setHealth(100);
+                    m_heroInside->setGold(m_heroInside->getGold() - 15);
+                    cout << "You just drinked a Half-Pint" << endl;
+
                     break;
                 }
-                hero->setHealth(hero->getHealth() + 25);
-                hero->setGold(hero->getGold() - 15);
+                m_heroInside->setHealth(m_heroInside->getHealth() + 25);
+                m_heroInside->setGold(m_heroInside->getGold() - 15);
+                cout << "You just drinked a Half-Pint" << endl;
+
                 break;
             }
             cout << "You have not enough golds to purchase a half pint" << endl;
+            break;
         }
         case 2: {
-            if (hero->getGold() >= 25) {
-                if (hero->getHealth() + 50 >= 100) {
-                    hero->setHealth(100);
-                    hero->setGold(hero->getGold() - 25);
+            if (m_heroInside->getGold() >= 25) {
+                if (m_heroInside->getHealth() + 50 >= 100) {
+                    m_heroInside->setHealth(100);
+                    m_heroInside->setGold(m_heroInside->getGold() - 25);
+                    cout << "You just drinked a Pint" << endl;
                     break;
                 }
-                hero->setHealth(hero->getHealth() + 50);
-                hero->setGold(hero->getGold() - 25);
+                m_heroInside->setHealth(m_heroInside->getHealth() + 50);
+                m_heroInside->setGold(m_heroInside->getGold() - 25);
+                cout << "You just drinked a Pint" << endl;
+
                 break;
             }
             cout << "You have not enough golds to purchase a pint" << endl;
+            break;
         }
         default: {
             cout << "Please enter a valid choice" << endl;
