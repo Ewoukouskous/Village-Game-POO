@@ -48,6 +48,14 @@ add_executable(TP_leVillage main.cpp
         MenuManager.cpp
         MenuManager.h
         InventoryMenu.h
+        Monster.cpp
+        Monster.h
+        Dragon.cpp
+        Dragon.h
+        Zombie.cpp
+        Zombie.h
+        Slime.cpp
+        Slime.h
 )
 target_link_libraries(TP_leVillage
         Qt::Core
