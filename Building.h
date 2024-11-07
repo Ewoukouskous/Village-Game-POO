@@ -29,6 +29,8 @@ public:
     Hero* getHeroInside() const {
         return m_heroInside;
     }
+    virtual string getBuildingType() =0;
+
     Building* getBuilding() {
         return this;
     }

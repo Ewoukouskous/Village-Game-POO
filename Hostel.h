@@ -12,10 +12,11 @@ private:
 public:
     Hostel();
 
-    void sellHeal(int choice, Hero *hero);
+    void sellHeal(int choice);
 
     string introduceBuilding() override;
 
+    string getBuildingType() override {return "Hostel";};
 };
 
 
