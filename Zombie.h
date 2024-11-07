@@ -11,7 +11,6 @@
 class Zombie : public Monster{
 public:
     Zombie();
-    string showStats() const;
 };
 
 

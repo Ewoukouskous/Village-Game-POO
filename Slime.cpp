@@ -12,13 +12,3 @@ Slime::Slime() {
     m_gold = 10;
 }
 
-string Slime::showStats() const {
-    string str = "Type : " + m_name + "\n"
-    + "Health: " + to_string(m_health) + "\n"
-    + "Attack : " + to_string(m_attack) + "\n"
-    + "Defense : " + to_string(m_defense) + "\n"
-    + "Gold : " + to_string(m_gold) + "\n";
-
-    return str;
-}
-

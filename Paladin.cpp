@@ -107,7 +107,7 @@ string Paladin::showStats() const {
 
 void Paladin::beingHit(const int mobAttack) const {
     cout << "You receive " << mobAttack << " damages" << endl;
-    if (m_shield != nullptr && m_shield->getDurability() > 0) {
+    if (m_shield != nullptr) {
         cout << "You have cancelled "<< mobAttack-getDefense() <<" damages with your shield" << endl;
         m_shield->use();
     }
