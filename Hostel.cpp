@@ -15,7 +15,6 @@ void Hostel::sellHeal(int choice) {
                     m_heroInside->setHealth(100);
                     m_heroInside->setGold(m_heroInside->getGold() - 15);
                     cout << "You just drinked a Half-Pint" << endl;
-
                     break;
                 }
                 m_heroInside->setHealth(m_heroInside->getHealth() + 25);

@@ -38,6 +38,7 @@ void Paladin::equipShield(Shield* ptr_shield) {
 
 }
 
+// Stocke le shield actuel dans l'inventaire
 void Paladin::storeShield() {
     if (m_shield==nullptr) {
         cout << "You doesn't have any shield equipped" << endl;
@@ -53,7 +54,6 @@ void Paladin::storeShield() {
     cout << "You have just put your " << m_shield->getName() <<" in your inventory" <<endl;
     m_shield = nullptr;
 }
-
 
 // Supprime le pointeur Shield* que le hero a équipé et DETRUIT le 'SHIELD'
 void Paladin::dropShield() {
@@ -105,9 +105,14 @@ string Paladin::showStats() const {
     return str;
 }
 
+
+vector<string> Paladin::getInventoryActions() const {
+    vector<string> actions = {"Show Inventory","Remove From Inventory","Store current weapon","Store current shield","Equip from inventory","Drink from inventory"};
+    return actions;
+}
 void Paladin::beingHit(const int mobAttack) const {
     cout << "You receive " << mobAttack << " damages" << endl;
-    if (m_shield != nullptr && m_shield->getDurability() > 0) {
+    if (m_shield != nullptr) {
         cout << "You have cancelled "<< mobAttack-getDefense() <<" damages with your shield" << endl;
         m_shield->use();
     }

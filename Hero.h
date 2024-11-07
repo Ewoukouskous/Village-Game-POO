@@ -6,16 +6,14 @@
 #define HERO_H
 
 #include "Inventory.h"
-#include "Sword.h"
-#include "Wand.h"
-#include "Shield.h"
-#include "PotionHeal.h"
-#include "PotionStrength.h"
-#include "PotionDefense.h"
-#include "Building.h"
 
+class PotionHeal;
+class PotionStrength;
+class PotionDefense;
+class Weapon;
+class Item;
+class Village;
 class Building;
-
 class Monster;
 
 // La classe abstraite 'Hero' a pour enfant :
@@ -27,14 +25,13 @@ class Monster;
 // - 'Wizard' : Peut uniquement équiper une arme 'Wand', pas de 'Shield'
 // et a une chance d'esquive de 20% ('m_dodge = 20')
 
-using namespace std;
-
 class Hero {
 // Par défaut les héros ont pour attribut:
 private:
     string m_name; // un nom
     int m_health; // = 100
     int m_gold; // = 50
+    Village* m_heroVillage;
 
 // Les attributs pouvant être changé par en fonction de la classe:
 protected:
@@ -63,12 +60,12 @@ public:
     // (Certaines classes ne pourrons pas équiper de bouclier)
     virtual void equipFromInventory(const int indexItem) =0;
 
+    void drinkFromInventory(const int indexItem);
+
     // Ajoute un pointeur d'item dans l'inventaire
     void addToInventory(Item* ptr_item) const;
     // On supprime et detruit un objet de l'inventaire
-    void removeFromInventory(int indexItem) const;
-
-    void drinkFromInventory(int indexItem);
+    void removeFromInventory(const int indexItem) const;
 
     void attackMonster(Monster *monster);
 
@@ -120,7 +117,6 @@ public:
         }
         return attack;
     }
-
     const int& getDodge() const {
         return m_dodge;
     }
@@ -136,9 +132,17 @@ public:
         return m_inventory->getInventoryList();
     }
 
+    // Contain all the Hero basic actions
+    vector<string> getBasicActions() const;
+    // Contain all the Inventory related actions
+    virtual vector<string> getInventoryActions() const;
+
     Building* getCurrentLocation() const {
         return m_currentLocation;
     }
+    Village* getHeroVillage() const { return m_heroVillage; }
 };
+
+
 
 #endif //HERO_H

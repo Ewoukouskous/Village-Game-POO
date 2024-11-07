@@ -27,6 +27,9 @@ public:
 
     string showStats() const override;
 
+    // Contain all the Inventory related actions
+    vector<string> getInventoryActions() const override;
+
     virtual void beingHit(int mobAttack) const;
 
     // GETTERS

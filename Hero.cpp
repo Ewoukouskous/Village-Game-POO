@@ -3,7 +3,13 @@
 //
 
 #include "Hero.h"
+#include "PotionHeal.h"
+#include "PotionStrength.h"
+#include "PotionDefense.h"
+#include "Weapon.h"
+#include "Item.h"
 #include "Monster.h"
+#include "Village.h"
 #include "Building.h"
 
     // Les stats par défaut d'un hero
@@ -15,6 +21,7 @@ Hero::Hero(const string &name) {
     m_attack = 10;
     m_dodge = 0;
     m_inventory = new Inventory();
+    m_heroVillage = new Village("FroopyLand");
 }
 
 void Hero::introduceHimself() const {
@@ -45,6 +52,7 @@ void Hero::dropWeapon() {
     delete m_weapon;
     m_weapon = nullptr;
 }
+
 
 // Ajoute un pointeur d'item dans l'inventaire
 void Hero::addToInventory(Item *ptr_item) const {
@@ -105,9 +113,11 @@ void Hero::drinkFromInventory(const int indexItem) {
 
 void Hero::attackMonster(Monster *monster) {
     int globalAttack = getAttack() - monster->getDefense();
-    cout << globalAttack << endl;
-    if (globalAttack < 0) {
-        cout << "you are so weak you did 0 damage ( noob )" << endl;
+    if (m_weapon != nullptr) {
+        m_weapon->use();
+    }
+    if (globalAttack <= 0) {
+        cout << "You are so weak you did 0 damage ( noob )" << endl;
     } else {
         monster->setHealth(monster->getHealth()-globalAttack);
         cout << getName() << " deal " << globalAttack << " damage to " << monster->getName() << endl;
@@ -118,10 +128,7 @@ void Hero::attackMonster(Monster *monster) {
             delete monster;
         }
     }
-    if (m_weapon != nullptr) {
-        cout <<
-        m_weapon->use();
-    }
+
 }
 
 
@@ -149,11 +156,24 @@ void Hero::beingHit(int mobAttack) {
     }
 }
 
+vector<string> Hero::getBasicActions() const{
+    vector<string> actions = {"Introduce Yourself","Inventory","Travel","Show Stats"};
+    return actions;
+}
+
+vector<string> Hero::getInventoryActions() const {
+    vector<string> actions = {"Show Inventory","Remove From Inventory","Store current weapon","Equip from inventory","Drink from inventory"};
+    return actions;
+}
+
 void Hero::travel(Building *ptr_building) {
     setCurrentLocation(ptr_building);
+    ptr_building->setHeroInside(this);
     cout << ptr_building->introduceBuilding() << endl;
 }
 
 void Hero::leave() {
+    getCurrentLocation()->setHeroInside(nullptr);
     setCurrentLocation(nullptr);
 }
+
