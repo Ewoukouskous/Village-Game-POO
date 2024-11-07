@@ -48,9 +48,23 @@ add_executable(TP_leVillage main.cpp
         Village.cpp
         Building.cpp
         Hostel.cpp
-        MonsterGenerator.h)
+        MonsterGenerator.h
+        MenuManager.h
+        MenuManager.cpp
+        HeroMenu.h
+        HeroMenu.cpp
+        Menu.h
+        Menu.cpp
+        InventoryMenu.h
+        HostelMenu.h
+        Mine.cpp
+        Mine.h
+        PlaySound.h
+        PlaySound.cpp
+)
 target_link_libraries(TP_leVillage
         Qt::Core
+        winmm
 )
 
 if (WIN32 AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
