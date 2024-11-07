@@ -22,10 +22,10 @@ void Mine::startFight() {
     cout << "Mine level: " << m_mineLvl << endl;
     showMonsters();
 
+    PlaySoundCave();
     // The turn based fight loop.
     // It will loop until all the monsters aren't dead
     while (!m_monstersList.empty()) {
-        PlaySoundCave();
         // If at the start of the loop the first monster is dead we erase it from the list
         if (m_monstersList[0]->getHealth()<=0) {
             m_monstersList.erase(m_monstersList.begin());
