@@ -104,6 +104,9 @@ void Hero::drinkFromInventory(const int indexItem) {
 
 void Hero::attackMonster(Monster *monster) {
     int globalAttack = getAttack() - monster->getDefense();
+    if (m_weapon != nullptr) {
+        m_weapon->use();
+    }
     if (globalAttack <= 0) {
         cout << "You are so weak you did 0 damage ( noob )" << endl;
     } else {
@@ -115,9 +118,6 @@ void Hero::attackMonster(Monster *monster) {
             setGold(monster->getGold() + getGold());
             delete monster;
         }
-    }
-    if (m_weapon != nullptr) {
-        m_weapon->use();
     }
 }
 
