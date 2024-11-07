@@ -36,7 +36,9 @@ public:
                     cout << m_hero->getInventory() << endl;
                     cout << "Please enter the index of the item you want to delete" << endl;
                     cin >> index;
+                    if (!cin.fail()) {
                     m_hero->removeFromInventory(index);
+                    }
                 break;
                     break;
                 case 3: // Store current weapon
@@ -81,7 +83,9 @@ public:
                     cout << m_hero->getInventory() << endl;
                     cout << "Please enter the index of the item you want to delete" << endl;
                     cin >> index;
+                    if (!cin.fail()) {
                     m_hero->removeFromInventory(index);
+                    }
                     break;
                 case 3: // Store current weapon
                     system ("cls");
