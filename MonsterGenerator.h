@@ -5,35 +5,27 @@
 #ifndef MONSTERGENERATOR_H
 #define MONSTERGENERATOR_H
 
-#include <string>
 #include "Zombie.h"
 #include "Slime.h"
 #include "Dragon.h"
 
-
-using namespace std;
 class MonsterGenerator {
 public:
-    static Monster* createMonster(int mineLevel) {
+    static Monster* createMonster(int mineLvl) {
         int type = 0;
-        if (mineLevel < 5 ) {
-            type = rand() % 2;
-        } else {
-            type = rand() % 3;
-        }
+        if (mineLvl <5) {type = rand() % 2;} else {type = rand() %3;}
         switch (type) {
-            case 0: return new Slime();
-            case 1: return new Zombie();
+            case 0: return new Zombie();
+            case 1: return new Slime();
             case 2: return new Dragon();
-            default : return nullptr;
+            default: return nullptr;
         }
     }
 
-    static void generateMonsters(vector<Monster*>& monstersList, int minelevel , int monsterQty) {
-        for (int i = 0; i < monsterQty; i++) {
-            monstersList.push_back(createMonster(minelevel));
+    static void generateMonsters(std::vector<Monster*>& monstersList,int mineLvl, int quantity) {
+        for (int i = 0; i < quantity; ++i) {
+            monstersList.push_back(createMonster(mineLvl));
         }
     }
 };
-
 #endif //MONSTERGENERATOR_H
