@@ -14,16 +14,6 @@ HeroMenu::HeroMenu(Hero* hero): Menu(hero) {
 }
 
 unique_ptr<Menu> HeroMenu::handleChoice(int choice) {
-    // if (dynamic_cast<Paladin*>(m_hero)) {
-    //     switch (choice) {
-    //         case 1:
-    //             cout <<"You're a Paladin!"<<endl;
-    //         break;
-    //         default :
-    //             cout << "Bad choice ..."<<endl;
-    //         break;
-    //     }
-    // } else {
         switch (choice) {
             case 1: // Introduce Yourself
                 system("cls");

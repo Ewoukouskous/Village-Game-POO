@@ -57,6 +57,8 @@ public:
     // (Certaines classes ne pourrons pas équiper de bouclier)
     virtual void equipFromInventory(const int indexItem) =0;
 
+    void drinkFromInventory(const int indexItem);
+
     // Ajoute un pointeur d'item dans l'inventaire
     void addToInventory(Item* ptr_item) const;
     // On supprime et detruit un objet de l'inventaire
