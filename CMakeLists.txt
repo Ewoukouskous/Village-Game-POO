@@ -48,7 +48,7 @@ add_executable(TP_leVillage main.cpp
         Village.cpp
         Building.cpp
         Hostel.cpp
-)
+        MonsterGenerator.h)
 target_link_libraries(TP_leVillage
         Qt::Core
 )

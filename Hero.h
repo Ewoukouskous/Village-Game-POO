@@ -36,7 +36,7 @@ private:
     int m_health; // = 100
     int m_gold; // = 50
 
-    // Les attributs pouvant être changé par en fonction de la classe:
+// Les attributs pouvant être changé par en fonction de la classe:
 protected:
     string m_type;
     int m_attack; // Par défaut = 10 | 'Warrior' = +50%

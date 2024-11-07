@@ -11,13 +11,3 @@ Dragon::Dragon() {
     m_defense = 15;
     m_gold = 50;
 }
-
-string Dragon::showStats() const {
-    string str = "Type : " + m_name + "\n"
-    + "Health: " + to_string(m_health) + "\n"
-    + "Attack : " + to_string(m_attack) + "\n"
-    + "Defense : " + to_string(m_defense) + "\n"
-    + "Gold : " + to_string(m_gold) + "\n";
-
-    return str;
-}
