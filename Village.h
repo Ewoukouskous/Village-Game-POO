@@ -24,6 +24,8 @@ public:
     Building* getBuilding(int index) {
         return m_village[index];
     }
+    string getBuildingType(int index) {return m_village[index]->getBuildingType();}
+    unsigned long getVillageSize();
 };
 
 #endif //VILLAGE_H
