@@ -9,7 +9,6 @@
 
 class Hostel: public Building {
 private:
-    string m_name;
 public:
     Hostel();
 
@@ -17,10 +16,6 @@ public:
 
     string introduceBuilding() override;
 
-        //GETTERS
-    string getName() {
-        return m_name;
-    }
 };
 
 

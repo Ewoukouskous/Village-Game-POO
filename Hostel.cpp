@@ -4,9 +4,7 @@
 
 #include "Hostel.h"
 
-Hostel::Hostel(): Building("Hostel") {
-
-}
+Hostel::Hostel(): Building("Hostel") {}
 
 void Hostel::sellHeal(int choice, Hero *hero) {
 
@@ -16,28 +14,26 @@ void Hostel::sellHeal(int choice, Hero *hero) {
                 if (hero->getHealth() + 25 >= 100) {
                     hero->setHealth(100);
                     hero->setGold(hero->getGold() - 15);
-                } else {
-                    hero->setHealth(hero->getHealth() + 25);
-                    hero->setGold(hero->getGold() - 15);
+                    break;
                 }
-            } else {
-                cout << "You have not enough golds to purchase a half pint" << endl;
+                hero->setHealth(hero->getHealth() + 25);
+                hero->setGold(hero->getGold() - 15);
+                break;
             }
-            break;
+            cout << "You have not enough golds to purchase a half pint" << endl;
         }
         case 2: {
             if (hero->getGold() >= 25) {
                 if (hero->getHealth() + 50 >= 100) {
                     hero->setHealth(100);
                     hero->setGold(hero->getGold() - 25);
-                } else {
-                    hero->setHealth(hero->getHealth() + 50);
-                    hero->setGold(hero->getGold() - 25);
+                    break;
                 }
-            } else {
-                cout << "You have not enough golds to purchase a pint" << endl;
+                hero->setHealth(hero->getHealth() + 50);
+                hero->setGold(hero->getGold() - 25);
+                break;
             }
-            break;
+            cout << "You have not enough golds to purchase a pint" << endl;
         }
         default: {
             cout << "Please enter a valid choice" << endl;
