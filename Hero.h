@@ -78,6 +78,7 @@ public:
 
     void leave();
 
+    void buyItem(Item *copyItem);
 
     // SETTERS
     void setHealth(int health) {
@@ -130,6 +131,10 @@ public:
 
     string getInventory() const {
         return m_inventory->getInventoryList();
+    }
+
+    unsigned long getInventorySize() const {
+        return m_inventory->getInventorySize();
     }
 
     // Contain all the Hero basic actions

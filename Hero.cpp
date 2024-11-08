@@ -175,3 +175,9 @@ void Hero::leave() {
     setCurrentLocation(nullptr);
 }
 
+void Hero::buyItem(Item *copyItem) {
+    setGold(getGold()-copyItem->getPrice());
+    addToInventory(copyItem);
+}
+
+
