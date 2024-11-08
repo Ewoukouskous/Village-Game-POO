@@ -29,6 +29,7 @@ int Shield::use() {
 void Shield::shieldBreak() {
     cout << "Your Shield just broke" << endl;
     m_defense = 0;
+    m_name += " [BROKEN]";
 }
 
 

@@ -29,4 +29,5 @@ int Sword::use() {
 void Sword::weaponBreak() {
     cout << "Your Sword just broke" << endl;
     m_damage = 0;
+    m_name += " [BROKEN]";
 }

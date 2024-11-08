@@ -30,5 +30,6 @@ int Wand::use() {
 void Wand::weaponBreak() {
     cout << "Your Wand just broke" << endl;
     m_damage = 0;
+    m_name += " [BROKEN]";
 }
 
