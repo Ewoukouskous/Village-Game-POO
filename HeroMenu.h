@@ -9,6 +9,9 @@
 #include "Paladin.h"
 #include "Wizard.h"
 #include "Menu.h"
+#include "Village.h"
+
+
 
 // HeroMenu will display all the Hero's possible actions
 // (depending on the type of Hero)

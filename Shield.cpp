@@ -20,7 +20,6 @@ int Shield::use() {
         return m_defense;
     }
     m_durability --;
-    cout << "You have cancelled damage with your shield" << endl;
     if (m_durability <= 0) {
         shieldBreak();
     }

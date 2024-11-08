@@ -3,6 +3,11 @@
 //
 
 #include "Paladin.h"
+
+#include "PotionDefense.h"
+#include "PotionHeal.h"
+#include "PotionStrength.h"
+
 Paladin::Paladin(const string &name) : Hero(name) {
     m_type = "Paladin";
 }
@@ -85,6 +90,49 @@ void Paladin::equipFromInventory(const int indexItem) {
 
 }
 
+void Paladin::drinkFromInventory(const int indexItem) {
+    // Verification que l'index n'est pas out of range
+    if (indexItem >= m_inventory->getInventorySize()) {
+        cout << "Error : Index Out Of Range" << endl;
+        return;
+    }
+    Item* item = m_inventory->getItem(indexItem);
+
+    // En fonction du type de potion on applique son effet
+    if (auto* healPotion = dynamic_cast<PotionHeal*>(item) ) {
+        // Si effectPotion + m_health est plus grand que 100 on set a 100
+        if (m_health + healPotion->getEffect() > 100) {
+            healPotion->use();
+            m_health = 100;
+        } else {
+            m_health += healPotion->use();;
+        }
+        cout << "Your HP are now : " << m_health << endl;
+        m_inventory->removeItem(indexItem);
+        return;
+    }
+    if (auto* strengthPotion = dynamic_cast<PotionStrength*>(item)){
+        // Si effectPotion + m_attack est plus grand que 100 on set a 100
+        if (m_attack + strengthPotion->getEffect() > 100) {
+            strengthPotion->use();
+            m_attack = 100;
+        } else {
+            m_attack += strengthPotion->use();
+        }
+        cout << "Your basic attack (without weapon) is now : " << m_attack << endl;
+        m_inventory->removeItem(indexItem);
+        return;
+    }
+    if (auto* defensePotion = dynamic_cast<PotionDefense*>(item)) {
+        // A paladin can't drink PotionDefense (it will be overcheated)
+        cout << "You can't drink a Potion of Defense, you fell in it when you were young :)" << endl;
+        cout << "You should think about using a shield instead" << endl;
+        return;
+    }
+    cout << "The choosen item isn't a potion" << endl;
+}
+
+
 string Paladin::showStats() const {
     int attack = m_attack;
     int defense = m_defense;
@@ -112,7 +160,7 @@ vector<string> Paladin::getInventoryActions() const {
 }
 void Paladin::beingHit(const int mobAttack) const {
     cout << "You receive " << mobAttack << " damages" << endl;
-    if (m_shield != nullptr && m_shield->getDurability() > 0) {
+    if (m_shield != nullptr) {
         cout << "You have cancelled "<< mobAttack-getDefense() <<" damages with your shield" << endl;
         m_shield->use();
     }

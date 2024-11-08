@@ -11,7 +11,6 @@
 class Slime : public Monster{
 public:
     Slime();
-    string showStats() const;
 };
 
 #endif //SLIME_H

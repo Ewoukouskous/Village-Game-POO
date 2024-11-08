@@ -6,13 +6,14 @@
 #define HERO_H
 
 #include "Inventory.h"
-#include "Sword.h"
-#include "Wand.h"
-#include "Shield.h"
-#include "PotionHeal.h"
-#include "PotionStrength.h"
-#include "PotionDefense.h"
 
+class PotionHeal;
+class PotionStrength;
+class PotionDefense;
+class Weapon;
+class Item;
+class Village;
+class Building;
 class Monster;
 
 // La classe abstraite 'Hero' a pour enfant :
@@ -28,17 +29,19 @@ class Hero {
 // Par défaut les héros ont pour attribut:
 private:
     string m_name; // un nom
-    int m_health; // = 100
     int m_gold; // = 50
+    Village* m_heroVillage;
 
 // Les attributs pouvant être changé par en fonction de la classe:
 protected:
     string m_type;
+    int m_health; // = 100
     int m_attack; // Par défaut = 10 | 'Warrior' = +50%
     int m_defense; // = 5
     int m_dodge; // Par défaut = 0 | 'Wizard' = 20
     Weapon* m_weapon = nullptr; // Tous peuvent avoir une arme
     Inventory* m_inventory = nullptr; // Tous ont un inventaire (qui est crée via le constructeur)
+    Building* m_currentLocation = nullptr;
 
 public:
 
@@ -57,7 +60,7 @@ public:
     // (Certaines classes ne pourrons pas équiper de bouclier)
     virtual void equipFromInventory(const int indexItem) =0;
 
-    void drinkFromInventory(const int indexItem);
+    virtual void drinkFromInventory(const int indexItem);
 
     // Ajoute un pointeur d'item dans l'inventaire
     void addToInventory(Item* ptr_item) const;
@@ -71,6 +74,11 @@ public:
     // Suite de strings contenant toutes les stats du héro
     virtual string showStats() const;
 
+    void travel(Building *ptr_building);
+
+    void leave();
+
+    void buyItem(Item *copyItem);
 
     // SETTERS
     void setHealth(int health) {
@@ -81,6 +89,9 @@ public:
     }
     void setAttack(int attack) {
         m_attack = attack;
+    }
+    void setCurrentLocation(Building *ptr_location) {
+        m_currentLocation = ptr_location;
     }
 
     // Getters
@@ -122,10 +133,19 @@ public:
         return m_inventory->getInventoryList();
     }
 
+    unsigned long getInventorySize() const {
+        return m_inventory->getInventorySize();
+    }
+
     // Contain all the Hero basic actions
     vector<string> getBasicActions() const;
     // Contain all the Inventory related actions
     virtual vector<string> getInventoryActions() const;
+
+    Building* getCurrentLocation() const {
+        return m_currentLocation;
+    }
+    Village* getHeroVillage() const { return m_heroVillage; }
 };
 
 

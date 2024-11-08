@@ -18,8 +18,9 @@ private:
     // currentMenu is a SmartPointer(unique) who point to a Menu class (HeroMenu for example)
     unique_ptr<Menu> currentMenu;
     stack<unique_ptr<Menu>> menuStack;
+    Hero* currentHero;
 public:
-    MenuManager(Hero* hero){currentMenu = make_unique<HeroMenu>(hero);}
+    MenuManager(Hero* hero){currentMenu = make_unique<HeroMenu>(hero);currentHero = hero;}
     void displayAndHandle();
 };
 

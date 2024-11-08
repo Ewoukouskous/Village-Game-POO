@@ -41,24 +41,31 @@ add_executable(TP_leVillage main.cpp
         PotionStrength.h
         PotionDefense.cpp
         PotionDefense.h
-        Menu.cpp
-        Menu.h
-        HeroMenu.cpp
-        HeroMenu.h
-        MenuManager.cpp
-        MenuManager.h
-        InventoryMenu.h
         Monster.cpp
-        Monster.h
-        Dragon.cpp
-        Dragon.h
-        Zombie.cpp
-        Zombie.h
         Slime.cpp
-        Slime.h
+        Zombie.cpp
+        Dragon.cpp
+        Village.cpp
+        Building.cpp
+        Hostel.cpp
+        MonsterGenerator.h
+        MenuManager.h
+        MenuManager.cpp
+        HeroMenu.h
+        HeroMenu.cpp
+        Menu.h
+        Menu.cpp
+        InventoryMenu.h
+        HostelMenu.h
+        Mine.cpp
+        Mine.h
+        PlaySound.h
+        PlaySound.cpp
+        Shop.cpp
 )
 target_link_libraries(TP_leVillage
         Qt::Core
+        winmm
 )
 
 if (WIN32 AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)

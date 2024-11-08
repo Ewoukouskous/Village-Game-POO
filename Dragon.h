@@ -11,7 +11,6 @@
 class Dragon : public Monster{
 public:
     Dragon();
-    string showStats() const;
 };
 
 

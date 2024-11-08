@@ -21,6 +21,10 @@ public:
     // Une fois la durabilité a 0 le bouclier casse et ne protège plus
     void shieldBreak();
 
+    Item* clone() const override {
+        return new Shield(*this);
+    }
+
 
 
     // GETTERS

@@ -19,11 +19,11 @@ Monster::~Monster() {
 }
 
 string Monster::showStats() const {
-    string str = "Type : " + m_name + "\n"
-    + "Health: " + to_string(m_health) + "\n"
-    + "Attack : " + to_string(m_attack) + "\n"
-    + "Defense : " + to_string(m_defense) + "\n"
-    + "Gold : " + to_string(m_gold) + "\n";
+    string str = "Type : " + m_name + " | "
+    + "Health: " + to_string(m_health) + " | "
+    + "Attack : " + to_string(m_attack) + " | "
+    + "Defense : " + to_string(m_defense) + " | "
+    + "Gold : " + to_string(m_gold) + " |\n";
 
     return str;
 }

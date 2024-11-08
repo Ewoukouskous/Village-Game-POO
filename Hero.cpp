@@ -3,7 +3,14 @@
 //
 
 #include "Hero.h"
+#include "PotionHeal.h"
+#include "PotionStrength.h"
+#include "PotionDefense.h"
+#include "Weapon.h"
+#include "Item.h"
 #include "Monster.h"
+#include "Village.h"
+#include "Building.h"
 
     // Les stats par défaut d'un hero
 Hero::Hero(const string &name) {
@@ -14,6 +21,7 @@ Hero::Hero(const string &name) {
     m_attack = 10;
     m_dodge = 0;
     m_inventory = new Inventory();
+    m_heroVillage = new Village("FroopyLand");
 }
 
 void Hero::introduceHimself() const {
@@ -77,25 +85,23 @@ void Hero::drinkFromInventory(const int indexItem) {
         return;
     }
     if (auto* strengthPotion = dynamic_cast<PotionStrength*>(item)){
-        // Si effectPotion + m_attack est plus grand que 100 on set a 100
-        if (m_attack + strengthPotion->getEffect() > 100) {
-            strengthPotion->use();
-            m_attack = 100;
-        } else {
-            m_attack += strengthPotion->use();
+        // Si m_attack plus grand ou égal a 20 on ne peut pas boire de potion
+        if (m_attack >= 20) {
+            cout << "You don't think you are strong enough to drink this ?" <<endl;
+            return;
         }
+        m_attack += strengthPotion->use();
         cout << "Your basic attack (without weapon) is now : " << m_attack << endl;
         m_inventory->removeItem(indexItem);
         return;
     }
     if (auto* defensePotion = dynamic_cast<PotionDefense*>(item)) {
-        // Si effectPotion + m_defense est plus grand que 100 on set a 100
-        if (m_defense + defensePotion->getEffect() > 100) {
-            defensePotion->use();
-            m_defense = 100;
-        } else {
-            m_defense += defensePotion->use();
+        // Si m_defense plus grand ou égal a 20 on ne peut pas boire de potion
+        if (m_defense >= 20) {
+            cout << "You can't drink Potion of Defense anymore (it's not fun if a Zombie can't hit you ^^)" <<endl;
+            return;
         }
+        m_defense += defensePotion->use();
         cout << "Your basic defense (without shield) is now : " << m_defense << endl;
         m_inventory->removeItem(indexItem);
         return;
@@ -105,6 +111,9 @@ void Hero::drinkFromInventory(const int indexItem) {
 
 void Hero::attackMonster(Monster *monster) {
     int globalAttack = getAttack() - monster->getDefense();
+    if (m_weapon != nullptr) {
+        m_weapon->use();
+    }
     if (globalAttack <= 0) {
         cout << "You are so weak you did 0 damage ( noob )" << endl;
     } else {
@@ -117,9 +126,7 @@ void Hero::attackMonster(Monster *monster) {
             delete monster;
         }
     }
-    if (m_weapon != nullptr) {
-        m_weapon->use();
-    }
+
 }
 
 
@@ -147,7 +154,7 @@ void Hero::beingHit(int mobAttack) {
     }
 }
 
-vector<string> Hero::getBasicActions() const {
+vector<string> Hero::getBasicActions() const{
     vector<string> actions = {"Introduce Yourself","Inventory","Travel","Show Stats"};
     return actions;
 }
@@ -156,4 +163,21 @@ vector<string> Hero::getInventoryActions() const {
     vector<string> actions = {"Show Inventory","Remove From Inventory","Store current weapon","Equip from inventory","Drink from inventory"};
     return actions;
 }
+
+void Hero::travel(Building *ptr_building) {
+    setCurrentLocation(ptr_building);
+    ptr_building->setHeroInside(this);
+    cout << ptr_building->introduceBuilding() << endl;
+}
+
+void Hero::leave() {
+    getCurrentLocation()->setHeroInside(nullptr);
+    setCurrentLocation(nullptr);
+}
+
+void Hero::buyItem(Item *copyItem) {
+    setGold(getGold()-copyItem->getPrice());
+    addToInventory(copyItem);
+}
+
 

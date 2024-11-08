@@ -17,6 +17,10 @@ public:
     // Une fois la durabilité a 0 l'arme casse et ne fait plus de dégats
     void weaponBreak() override;
 
+    Item* clone() const override {
+        return new Wand(*this);
+    }
+
 };
 
 

@@ -6,7 +6,7 @@
 #define INVENTORYMENU_H
 
 #include "Menu.h"
-
+#include "Paladin.h"
 class InventoryMenu : public Menu{
 public:
     // Display example :
@@ -39,7 +39,6 @@ public:
                     if (!cin.fail()) {
                     m_hero->removeFromInventory(index);
                     }
-                break;
                     break;
                 case 3: // Store current weapon
                     system ("cls");
@@ -108,6 +107,7 @@ public:
                 case 0 : // Return to the Hero's Menu
                     system ("cls");
                     // return make_unique<HeroMenu>(m_hero);
+                    break;
                 default :
                     cout << "Bad choice .... " <<endl;
 
@@ -116,6 +116,4 @@ public:
         return nullptr;
     }
 };
-
-
 #endif //INVENTORYMENU_H

@@ -46,7 +46,7 @@ public:
     virtual ~Monster();
 
     // juste pour voir les stats du monstre pour le debug
-    virtual string showStats() const;
+    string showStats() const;
 
     // Méthode qui s'occupe d'attaquer le Hero
     void attackHero(Hero *hero);

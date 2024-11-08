@@ -22,6 +22,8 @@ protected:
     Hero* m_hero;
     vector <string> m_options;
 public:
+    virtual ~Menu() = default;
+
     Menu(Hero* hero) {m_hero = hero;};
 
     virtual void display();
