@@ -4,7 +4,7 @@
 
 #include "Shop.h"
 
-Shop::Shop(): Building("Shop") {
+Shop::Shop(): Building("The 'Potion & Blade' Bazaar") {
     PotionHeal *small_potion_heal = new PotionHeal("Small Potion of Heal", 30, 25);
     PotionHeal *big_potion_heal = new PotionHeal("Big Potion of Heal", 100, 90);
     PotionDefense *potion_defense = new PotionDefense("Potion of Defense", 5, 70);

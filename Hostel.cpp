@@ -4,7 +4,7 @@
 
 #include "Hostel.h"
 
-Hostel::Hostel(): Building("Hostel") {}
+Hostel::Hostel(): Building("The Drunk Shrimp Tavern") {}
 
 void Hostel::sellHeal(int choice) {
 

@@ -19,7 +19,7 @@ private :
         return m_fibonacci(mineLvl - 1) + m_fibonacci(mineLvl - 2);
     }
 public:
-    Mine(): Building("Mine"),m_mineLvl(1){}
+    Mine(): Building("The 'Paraceta'mole' Cave"),m_mineLvl(1){}
     ~Mine() {
         for (auto monster : m_monstersList) {
             delete monster;

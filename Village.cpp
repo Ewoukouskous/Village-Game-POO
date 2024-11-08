@@ -19,11 +19,11 @@ Village::Village(string name) {
 }
 
 string Village::showBuilding() {
-    string title = "--------- " + m_name + " ---------\n";
+    string title = "-------------- " + m_name + " ---------------\n";
     ostringstream result;
     for (int i = 0; i < m_village.size(); i++) {
         if (i < m_village.size()) {
-            result << std::left <<"|[index " << to_string(i) << "]: " <<setw(7)<< m_village[i]->getName()<<"|\n";
+            result << std::left <<"|[index " << to_string(i) << "]: " <<setw(28)<< m_village[i]->getName()<<"|\n";
         }
     }
     for (int i = 0; i < title.size()-1; i++) {
