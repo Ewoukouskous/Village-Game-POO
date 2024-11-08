@@ -89,6 +89,7 @@ void Shop::sellItem(int itemIndex) {
         return;
     }
     if (m_heroInside->getGold() >= m_shopInventory[itemIndex]->getPrice() && m_heroInside->getInventorySize() < 10) {
+        cout << "You just buy : " << m_shopInventory[itemIndex]->getName() << " !" << endl;
         cout << "Dont forget ! neither returned or exchanged !! ;] " << endl;
         m_heroInside->buyItem(getItemCopy(itemIndex));
         return;

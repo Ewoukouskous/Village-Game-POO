@@ -16,7 +16,7 @@ private: Hostel* m_hostel = nullptr;
 public:
 
     HostelMenu(Hero* hero, Hostel* hostel) : Menu(hero) {
-        m_hero->travel(hostel);m_hostel = hostel; m_title = hostel->getName(); m_options={"Show Hero Stats","Drink a Half-Pint (+25HP) [15golds]","Drink a Pint (+50HP) [25golds]"};PlaySoundHostel();
+        m_hero->travel(hostel);m_hostel = hostel; m_title = hostel->getName(); m_options={"Show Hero Stats","Drink a Half-Pint (+25HP) [15golds]","Drink a Pint (+50HP) [40golds]"};PlaySoundHostel();
 ;
     }
     unique_ptr<Menu> handleChoice(int choice) override {
@@ -38,6 +38,7 @@ public:
                 StopSound();
                 m_hero->leave();
                 m_hostel = nullptr;
+                system("cls");
                 break;
             default:
                 cout << "Bad choice...." << endl;

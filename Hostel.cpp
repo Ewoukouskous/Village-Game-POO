@@ -30,12 +30,12 @@ void Hostel::sellHeal(int choice) {
             if (m_heroInside->getGold() >= 40) {
                 if (m_heroInside->getHealth() + 50 >= 100) {
                     m_heroInside->setHealth(100);
-                    m_heroInside->setGold(m_heroInside->getGold() - 25);
+                    m_heroInside->setGold(m_heroInside->getGold() - 40);
                     cout << "You just drinked a Pint" << endl;
                     break;
                 }
                 m_heroInside->setHealth(m_heroInside->getHealth() + 50);
-                m_heroInside->setGold(m_heroInside->getGold() - 25);
+                m_heroInside->setGold(m_heroInside->getGold() - 40);
                 cout << "You just drinked a Pint" << endl;
 
                 break;

@@ -127,6 +127,9 @@ string Inventory::getItemType(const int indexItem) const {
 
 string Inventory::getInventoryList() const {
     string list = "";
+    if (m_itemsArray.size() == 0) {
+        cout << "Your inventory is empty :( " << endl;
+    }
     for (unsigned int i = 0; i < m_itemsArray.size(); i++) {
         if (i == 3 || i == 6 || i == 9) {
             list += "\n";
