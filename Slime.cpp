@@ -7,7 +7,7 @@
 Slime::Slime() {
     m_name = "Slime";
     m_health = 15;
-    m_attack = 6;
+    m_attack = 10;
     m_defense = 2;
     m_gold = 10;
 }
