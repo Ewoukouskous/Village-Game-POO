@@ -126,6 +126,7 @@ void Paladin::drinkFromInventory(const int indexItem) {
     if (auto* defensePotion = dynamic_cast<PotionDefense*>(item)) {
         // A paladin can't drink PotionDefense (it will be overcheated)
         cout << "You can't drink a Potion of Defense, you fell in it when you were young :)" << endl;
+        cout << "You should think about using a shield instead" << endl;
         return;
     }
     cout << "The choosen item isn't a potion" << endl;
