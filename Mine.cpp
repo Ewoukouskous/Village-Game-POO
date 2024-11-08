@@ -55,6 +55,7 @@ void Mine::startFight() {
     cout << "Congrats!!!! You killed all the monster of that cave ! "<<endl;
     cout << "The next mine level will be " << m_mineLvl << endl;
     StopSound();
+    PlaySoundCongratsSFX();
     m_heroInside->leave();
 }
 

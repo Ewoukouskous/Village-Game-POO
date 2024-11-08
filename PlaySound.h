@@ -8,6 +8,8 @@
 #include <string>
 void StopSound();
 void PlaySoundHostel();
+void PlaySoundShop();
 void PlaySoundCave();
+void PlaySoundCongratsSFX();
 
 #endif //PLAYSOUND_H

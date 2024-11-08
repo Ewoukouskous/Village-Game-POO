@@ -14,6 +14,15 @@ void PlaySoundHostel() {
     PlaySound(TEXT("HostelMusic.wav"), NULL,SND_LOOP |  SND_ASYNC);
 }
 
+void PlaySoundShop() {
+    PlaySound(TEXT("ShopMusic.wav"), NULL,SND_LOOP |  SND_ASYNC);
+
+}
+
 void PlaySoundCave() {
     PlaySound(TEXT("MineMusic.wav"), NULL, SND_LOOP | SND_ASYNC);
+}
+
+void PlaySoundCongratsSFX() {
+    PlaySound(TEXT("CongratSFX.wav"), NULL, SND_ASYNC);
 }
