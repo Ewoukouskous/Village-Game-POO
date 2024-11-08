@@ -50,6 +50,6 @@ void Hostel::sellHeal(int choice) {
 }
 
 string Hostel::introduceBuilding() {
-    string desc = "--- Welcome in the hostel, what do you want to drink ? ---";
+    string desc = "--- Welcome in the hostel, what do you want to drink ? ---\n";
     return desc;
 }

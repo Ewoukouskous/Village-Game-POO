@@ -16,25 +16,25 @@ private: Hostel* m_hostel = nullptr;
 public:
 
     HostelMenu(Hero* hero, Hostel* hostel) : Menu(hero) {
-        m_hero->travel(hostel);m_hostel = hostel; m_title = hostel->getName(); m_options={"Show Stats","Drink a Half-Pint [15gold]","Drink a Pint [25gold]"};PlaySoundHostel();
+        m_hero->travel(hostel);m_hostel = hostel; m_title = hostel->getName(); m_options={"Show Hero Stats","Drink a Half-Pint (+25HP) [15golds]","Drink a Pint (+50HP) [25golds]"};PlaySoundHostel();
 ;
     }
     unique_ptr<Menu> handleChoice(int choice) override {
         switch (choice) {
-            case 1 :
+            case 1 : // Show Hero Stats
                 system("cls");
                 cout << m_hero->showStats()<< endl;
                 break;
-            case 2 :
+            case 2 : // Drink a Half-Pint
                 system("cls");
                  m_hostel->sellHeal(1);
                 break;
-            case 3 :
+            case 3 : // Drink a Pint
                 system("cls");
                 m_hostel->sellHeal(2);
                 break;
-            case 0:
-                cout << "You leaved the Hostel" << endl;
+            case 0: // Leave the Hostel
+                cout << "You leaved the "<< m_hostel->getName() << endl;
                 StopSound();
                 m_hero->leave();
                 m_hostel = nullptr;
