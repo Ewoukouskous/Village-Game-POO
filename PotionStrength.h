@@ -21,6 +21,9 @@ public:
         string str = "| " + m_name + " | Effect : +" + to_string(m_effect) + "SP | Price : " + to_string(m_price) + "|";
         return str;
     }
+    Item* clone() const override {
+        return new PotionStrength(*this);
+    }
 };
 
 

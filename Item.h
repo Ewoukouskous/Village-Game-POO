@@ -20,6 +20,9 @@ public:
     virtual string getType() = 0 ;
     virtual string getItemInfos() = 0;
     virtual int use() = 0 ;
+
+    virtual Item* clone() const = 0;
+
     // GETTERS
     const string & getName() const {
         return m_name;
