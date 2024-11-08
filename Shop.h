@@ -14,11 +14,16 @@
 class Shop: public Building {
 private:
     vector<Item*> m_shopInventory;
+    // Will display all the item of the given type (template)
+    template <typename T> void displaySection(const string& sectionName) const;
 public:
     Shop();
 
-    string showInventory();
+    // Display all the inventory of the Shop using displaySections()
+    void displayAllItems() const;
+    // Send a copy of his item
     Item* getItemCopy(int index);
+    // Allow the Hero to buy something (if he can afford it or have enough space in his inventory
     void sellItem(int itemIndex);
 
     string getBuildingType() override;

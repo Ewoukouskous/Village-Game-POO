@@ -45,17 +45,43 @@ Item* Shop::getItemCopy(int index) {
     return nullptr;
 }
 
-
-string Shop::showInventory() {
-    string list = "";
-    for (unsigned int i = 0; i < m_shopInventory.size(); i++) {
-        if (i == 3 || i == 6 || i == 9 || i == 12) {
-            list += "\n";
+// displaySection will display all the item of the given type present in the shop inventory
+// The template is useful to call the getItemInfos() method of the concrete class given, without that it will call the method
+// from Item and not of the specialisation.
+template<typename T> void Shop::displaySection(const string &sectionName) const {
+    {
+        cout << "------------------------------------" << sectionName << "-------------------------------------\n";
+        int index = 0;
+        for (const auto& item : m_shopInventory) {
+            if (dynamic_cast<T*>(item)) {
+                cout << "[" << index << "] ";
+                cout << item->getItemInfos();
+            }
+            ++index;
         }
-        list += "|[index " + to_string(i) + "]: " + m_shopInventory[i]->getName() + "|  ";
+        cout << "-------------------------------------------------------------------------------\n";
     }
-    return list;
 }
+
+
+void Shop::displayAllItems() const {
+    std::cout << "=================================SHOP INVENTORY=================================\n";
+
+    // Display all the Potions
+    displaySection<Potion>("POTIONS");
+
+    // Display all the Swords
+    displaySection<Sword>("SWORDS");
+
+    // Display all the Wands
+    displaySection<Wand>("WANDS");
+
+    // Display all the Shields
+    displaySection<Shield>("SHIELDS");
+
+    std::cout << "================================================================================\n";
+}
+
 
 void Shop::sellItem(int itemIndex) {
     if (itemIndex < 0 || itemIndex >= m_shopInventory.size()) {
