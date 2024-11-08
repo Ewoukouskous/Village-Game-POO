@@ -62,6 +62,7 @@ add_executable(TP_leVillage main.cpp
         PlaySound.h
         PlaySound.cpp
         Shop.cpp
+        ShopMenu.h
 )
 target_link_libraries(TP_leVillage
         Qt::Core

@@ -18,6 +18,7 @@
 // and can call the Hero's InventoryMenu
 class HeroMenu : public Menu {
 private:
+    Village* m_heroVillage = nullptr;
 public:
     HeroMenu(Hero* hero);
     unique_ptr<Menu> handleChoice(int choice) override;
