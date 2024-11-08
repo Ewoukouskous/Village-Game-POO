@@ -5,6 +5,8 @@
 #ifndef SHIELD_H
 #define SHIELD_H
 
+#include <iomanip>
+
 #include "Item.h"
 
 class Shield : public Item{
@@ -36,9 +38,14 @@ public:
     const int& getDefense() const {
         return m_defense;
     }
-    string getItemInfos() {
-        string str = "| " + m_name + " | Defense : " + to_string(m_defense) + " | Durability : " + to_string(m_durability) + " | Price : " + to_string(m_price) + "|";
-        return str;
+    string getItemInfos() override {
+        ostringstream itemInfos;
+        itemInfos << std::left << setw(25) << m_name
+                  << "| Durability: " << setw(3) << m_durability
+                  << "| Defense: " << setw(3) << m_defense
+                  << "| Price: " << m_price << " gold\n";
+        return itemInfos.str();
+
     }
 };
 

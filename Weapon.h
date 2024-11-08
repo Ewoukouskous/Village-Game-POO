@@ -4,6 +4,8 @@
 
 #ifndef WEAPON_H
 #define WEAPON_H
+#include <iomanip>
+
 #include "Item.h"
 
 
@@ -23,9 +25,13 @@ public:
     const string & getWeaponType() const {
         return m_weaponType;
     }
-    string getItemInfos() {
-        string str = "| " + m_name + " | Damage : " + to_string(m_damage) + " | Durability : " + to_string(m_durability) + " | Price : " + to_string(m_price) + "|";
-        return str;
+    string getItemInfos() override {
+        ostringstream itemInfos;
+        itemInfos << std::left << setw(25) << m_name
+            << "| Durability: " << setw(3) << m_durability
+            << "| Damage: " << setw(3) << m_damage
+            << "| Price: " << m_price << " gold\n";
+        return itemInfos.str();
     }
     const int & getDamage() const {
         return m_damage;

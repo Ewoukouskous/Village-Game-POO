@@ -5,6 +5,8 @@
 #ifndef POTIONDEFENSE_H
 #define POTIONDEFENSE_H
 
+#include <iomanip>
+
 #include "Potion.h"
 
 class PotionDefense : public Potion{
@@ -17,9 +19,12 @@ public:
     string getType() override {
         return m_potionType;
     }
-    string getItemInfos() {
-        string str = "| " + m_name + " | Effect : +" + to_string(m_effect) + "DP | Price : " + to_string(m_price) + "|";
-        return str;
+    string getItemInfos() override {
+        ostringstream itemInfos;
+        itemInfos << std::left << setw(25) << m_name
+                  << "| Effect: " << setw(3) << m_effect << "DP"
+                  << "| Price: " << m_price << " gold\n";
+        return itemInfos.str();
     }
     Item* clone() const override {
         return new PotionDefense(*this);
