@@ -100,7 +100,8 @@ string Shop::getBuildingType() {
     return "Shop";
 }
 
-string Shop::introduceBuilding() {
+string Shop::introduceBuilding(){
+    displayAllItems();
     string result = "Welcome to the Shop! You can buy everything I have here!";
     return result;
 }
