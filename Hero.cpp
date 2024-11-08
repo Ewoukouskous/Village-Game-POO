@@ -15,10 +15,10 @@
     // Les stats par défaut d'un hero
 Hero::Hero(const string &name) {
     m_name = name;
-    m_health = 1000000;
+    m_health = 100;
     m_defense = 5;
     m_gold = 50;
-    m_attack = 100;
+    m_attack = 10;
     m_dodge = 0;
     m_inventory = new Inventory();
     m_heroVillage = new Village("FroopyLand");
