@@ -29,13 +29,13 @@ class Hero {
 // Par défaut les héros ont pour attribut:
 private:
     string m_name; // un nom
-    int m_health; // = 100
     int m_gold; // = 50
     Village* m_heroVillage;
 
 // Les attributs pouvant être changé par en fonction de la classe:
 protected:
     string m_type;
+    int m_health; // = 100
     int m_attack; // Par défaut = 10 | 'Warrior' = +50%
     int m_defense; // = 5
     int m_dodge; // Par défaut = 0 | 'Wizard' = 20
@@ -60,7 +60,7 @@ public:
     // (Certaines classes ne pourrons pas équiper de bouclier)
     virtual void equipFromInventory(const int indexItem) =0;
 
-    void drinkFromInventory(const int indexItem);
+    virtual void drinkFromInventory(const int indexItem);
 
     // Ajoute un pointeur d'item dans l'inventaire
     void addToInventory(Item* ptr_item) const;

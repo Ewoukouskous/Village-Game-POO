@@ -25,6 +25,8 @@ public:
     // Equiper un SHIELD ou une SWORD provenant de l'inventaire
     void equipFromInventory(const int indexItem) override;
 
+    void drinkFromInventory(const int indexItem) override;
+
     string showStats() const override;
 
     // Contain all the Inventory related actions
