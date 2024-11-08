@@ -43,6 +43,7 @@ void MenuManager::displayAndHandle() {
             menuStack.pop();
         }
     }
-    cout<< "GAME OVER !!!!" << endl;
+    system("cls");
+    cout<< "You just died :( \nGAME OVER !!!!" << endl;
     system("pause");
 }

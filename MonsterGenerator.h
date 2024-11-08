@@ -15,8 +15,8 @@ public:
         int type = 0;
         if (mineLvl <5) {type = rand() % 2;} else {type = rand() %3;}
         switch (type) {
-            case 0: return new Zombie();
-            case 1: return new Slime();
+            case 0: return new Slime();
+            case 1: return new Zombie();
             case 2: return new Dragon();
             default: return nullptr;
         }
