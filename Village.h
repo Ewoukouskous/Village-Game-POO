@@ -18,6 +18,11 @@ private:
     vector<Building*> m_village;
 public:
     Village(string name);
+    ~Village() {
+        for (auto building : m_village) {
+            delete building;
+        }
+    }
 
     string showBuilding();
 

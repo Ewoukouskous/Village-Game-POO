@@ -20,20 +20,16 @@ Village::Village(string name) {
 
 string Village::showBuilding() {
     string title = "--------- " + m_name + " ---------\n";
-    string result;
+    ostringstream result;
     for (int i = 0; i < m_village.size(); i++) {
-        if (i == m_village.size() - 1) {
-            result += "|[index " + to_string(i) + "]: " + m_village[i]->getName();
-        } else {
-            result += "|[index " + to_string(i) + "]: " + m_village[i]->getName() + "|  ";
+        if (i < m_village.size()) {
+            result << std::left <<"|[index " << to_string(i) << "]: " <<setw(7)<< m_village[i]->getName()<<"|\n";
         }
-        result +="\n";
     }
     for (int i = 0; i < title.size()-1; i++) {
-        result += "-";
+        result << "-";
     }
-
-    return title+result;
+    return title+result.str();
 }
 
 unsigned long Village::getVillageSize() {
