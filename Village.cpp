@@ -5,14 +5,16 @@
 #include "Village.h"
 #include "Mine.h"
 #include "Hostel.h"
+#include "Shop.h"
 
 Village::Village(string name) {
     m_name = name;
     Building *hostel = new Hostel();
-    // Building *shop = new Building();
+    Building *shop = new Shop();
     Building* mine = new Mine();
 
     m_village.push_back(hostel);
+    m_village.push_back(shop);
     m_village.push_back(mine);
 }
 
