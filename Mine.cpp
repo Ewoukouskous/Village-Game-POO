@@ -12,6 +12,13 @@ string Mine::introduceBuilding() {
     return str;
 }
 
+string Mine::mineStatus() {
+    string str = "Monsters lefts : " + to_string(m_monstersList.size()) + "\nCurrent Monster: |" + m_monstersList[0]->
+                 showStats();
+    return str;
+}
+
+
 void Mine::startFight() {
     // Determinate the qty of monster from fibonacci and generate them
     int monsterQty = m_fibonacci(m_mineLvl);
@@ -31,8 +38,19 @@ void Mine::startFight() {
             m_monstersList.erase(m_monstersList.begin());
             continue;
         }
-        cout << "Monsters lefts : " << m_monstersList.size() << endl;
-        cout << "Current Monster: |" << m_monstersList[0]->showStats() << endl;
+        cout << mineStatus()<<endl;
+
+        // If the hero have a weapon equipped it will display it
+        // and if the hero is a paladin who have a shield equipped it will display it too
+        if (m_heroInside->getWeapon()!=nullptr) {cout << "Equipped Weapon : " << m_heroInside->getWeaponName()<<endl;}
+        if (dynamic_cast<Paladin*>(m_heroInside)) {
+            Paladin* tempPaladin = dynamic_cast<Paladin*>(m_heroInside);
+            if (tempPaladin->getShield()!=nullptr) {
+                cout << "Equipped Shield : " << tempPaladin->getShieldName()<<endl;
+            }
+        }
+
+
 
         // It the turn of the Hero, we start his fight menu (where he can go through his inventory)
         // Until he press '3' the Hero don't attack the Monster

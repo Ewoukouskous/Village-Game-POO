@@ -44,6 +44,17 @@ public:
         return defense;
     }
 
+    const string getShieldName() const {
+        if (m_shield == nullptr) {
+            return "NULL Shield";
+        }
+        return m_shield->getName();
+    }
+
+    Shield* getShield() const {
+        return m_shield;
+    }
+
     const string& getType() const override {
         return m_type;
     }

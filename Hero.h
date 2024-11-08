@@ -122,11 +122,14 @@ public:
         return m_dodge;
     }
 
-    const string getWeapon() const {
+    const string getWeaponName() const {
         if (m_weapon == nullptr) {
             return "NULL WEAPON";
         }
         return m_weapon->getName();
+    }
+    Weapon* getWeapon() const {
+        return m_weapon;
     }
 
     string getInventory() const {

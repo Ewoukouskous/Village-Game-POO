@@ -20,6 +20,12 @@ private :
     }
 public:
     Mine(): Building("Mine"),m_mineLvl(1){}
+    ~Mine() {
+        for (auto monster : m_monstersList) {
+            delete monster;
+        }
+    }
+
     string introduceBuilding() override;
 
     void startFight();
@@ -32,6 +38,9 @@ public:
         }
         cout <<endl;
     }
+
+    string mineStatus();
+
     string getBuildingType() override;
 };
 
