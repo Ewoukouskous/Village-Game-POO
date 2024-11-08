@@ -27,7 +27,7 @@ void Hostel::sellHeal(int choice) {
             break;
         }
         case 2: {
-            if (m_heroInside->getGold() >= 25) {
+            if (m_heroInside->getGold() >= 40) {
                 if (m_heroInside->getHealth() + 50 >= 100) {
                     m_heroInside->setHealth(100);
                     m_heroInside->setGold(m_heroInside->getGold() - 25);
