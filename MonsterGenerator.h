@@ -13,7 +13,7 @@ class MonsterGenerator {
 public:
     static Monster* createMonster(int mineLvl) {
         int type = 0;
-        if (mineLvl <5) {type = rand() % 2;} else {type = rand() %3;}
+        if (mineLvl > 3) {type = rand() % 2;} if (mineLvl > 5) {type = rand() %3;}
         switch (type) {
             case 0: return new Slime();
             case 1: return new Zombie();

@@ -117,7 +117,9 @@ void Hero::attackMonster(Monster *monster) {
     if (globalAttack <= 0) {
         cout << "You are so weak you did 0 damage ( noob )" << endl;
     } else {
-        monster->setHealth(monster->getHealth()-globalAttack);
+        if (monster->getHealth()-globalAttack<=0) {monster->setHealth(0);}
+        else {monster->setHealth(monster->getHealth()-globalAttack);}
+
         cout << getName() << " deal " << globalAttack << " damage to " << monster->getName() << endl;
         cout << monster->getName() << " have now "<< monster->getHealth()<< " hp" << endl;
         if (monster->getHealth() <= 0) {
