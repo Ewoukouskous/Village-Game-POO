@@ -23,6 +23,7 @@ public:
                 system("cls");
                 m_shop->displayAllItems();
                 cout << "Your Inventory : "<< m_hero->getInventory()<<endl;
+                cout << "You have " << m_hero->getGold() << " gold in your wallet" << endl;
                 break;
             case 2:
                 system("cls");

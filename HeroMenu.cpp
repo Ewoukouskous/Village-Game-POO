@@ -56,6 +56,7 @@ unique_ptr<Menu> HeroMenu::handleChoice(int choice) {
                     dynamic_cast<Mine*>(m_heroVillage->getBuilding(index))->startFight();
                     }
 
+                // If the given index refer to a building type 'Shop' we return the ShopMenu
                 else if (m_heroVillage->getBuildingType(index) == "Shop") {
                     system("cls");
                     return make_unique<ShopMenu>(m_hero,dynamic_cast<Shop*>(m_heroVillage->getBuilding(index)));
