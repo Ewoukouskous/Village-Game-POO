@@ -18,6 +18,9 @@ private:
     template <typename T> void displaySection(const string& sectionName) const;
 public:
     Shop();
+    ~Shop();
+
+    void addToInventory(Item* item);
 
     // Display all the inventory of the Shop using displaySections()
     void displayAllItems() const;
@@ -29,7 +32,6 @@ public:
     string getBuildingType() override;
     string introduceBuilding() override;
 
-    ~Shop();
 };
 
 

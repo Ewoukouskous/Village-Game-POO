@@ -5,37 +5,27 @@
 #include "Shop.h"
 
 Shop::Shop(): Building("The 'Potion & Blade' Bazaar") {
-    PotionHeal *small_potion_heal = new PotionHeal("Small Potion of Heal", 30, 25);
-    PotionHeal *big_potion_heal = new PotionHeal("Big Potion of Heal", 100, 90);
-    PotionDefense *potion_defense = new PotionDefense("Potion of Defense", 5, 70);
-    PotionStrength *potion_strength = new PotionStrength("Potion of Strength", 5, 70);
 
-    Sword *little_stick = new Sword(3, 20, "Little Stick", 5);
-    Sword *iron_sword = new Sword(10, 45, "Iron Sword", 35);
-    Sword *peacekeeper = new Sword(25, 65, "Peacekeeper", 70);
+    addToInventory(new PotionHeal("Small Potion of Heal", 30, 25));
+    addToInventory(new PotionHeal("Big Potion of Heal", 100, 90));
+    addToInventory(new PotionDefense("Potion of Defense", 5, 70));
+    addToInventory(new PotionStrength("Potion of Strength", 5, 70));
 
-    Wand *magic_stick = new Wand(5, 20, "Magic Stick", 5);
-    Wand *elderberry_wand = new Wand(18, 45, "Elderberry Sword", 30);
-    Wand *avada_kedavra = new Wand(1000, 1, "Avada Kedavra", 65);
+    addToInventory(new Sword(3, 20, "Little Stick", 5));
+    addToInventory(new Sword(10, 45, "Iron Sword", 35));
+    addToInventory(new Sword(25, 65, "Peacekeeper", 70));
 
-    Shield *wooden_plank = new Shield(5, 15, "Wooden Plank", 10);
-    Shield *hyrule_shield = new Shield(15, 35, "Hyrule's Shield", 30);
-    Shield *tower_shield = new Shield(30, 50, "Tower Shield", 85);
+    addToInventory(new Wand(5, 20, "Magic Stick", 5));
+    addToInventory(new Wand(18, 45, "Elderberry Sword", 30));
+    addToInventory(new Wand(1000, 1, "Avada Kedavra", 65));
 
-    m_shopInventory.push_back(small_potion_heal);
-    m_shopInventory.push_back(big_potion_heal);
-    m_shopInventory.push_back(potion_defense);
-    m_shopInventory.push_back(potion_strength);
-    m_shopInventory.push_back(little_stick);
-    m_shopInventory.push_back(iron_sword);
-    m_shopInventory.push_back(peacekeeper);
-    m_shopInventory.push_back(magic_stick);
-    m_shopInventory.push_back(elderberry_wand);
-    m_shopInventory.push_back(avada_kedavra);
-    m_shopInventory.push_back(wooden_plank);
-    m_shopInventory.push_back(hyrule_shield);
-    m_shopInventory.push_back(tower_shield);
+    addToInventory(new Shield(5, 15, "Wooden Plank", 10));
+    addToInventory(new Shield(15, 35, "Hyrule's Shield", 30));
+    addToInventory(new Shield(30, 50, "Tower Shield", 85));
+}
 
+void Shop::addToInventory (Item* item) {
+    m_shopInventory.push_back(item);
 }
 
 Item* Shop::getItemCopy(int index) {
