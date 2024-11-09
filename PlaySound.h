@@ -11,5 +11,6 @@ void PlaySoundHostel();
 void PlaySoundShop();
 void PlaySoundCave();
 void PlaySoundCongratsSFX();
+void invicibleCheat();
 
 #endif //PLAYSOUND_H
