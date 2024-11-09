@@ -14,7 +14,7 @@ void StopSound() {
 
 
 void PlaySoundHostel() {
-    // Démarrer la lecture de la musique
+    // Play the music
     PlaySound(TEXT("HostelMusic.wav"), NULL,SND_LOOP |  SND_ASYNC);
 }
 

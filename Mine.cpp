@@ -12,6 +12,7 @@ string Mine::introduceBuilding() {
     return str;
 }
 
+    // Show the monsters left in the level and the current monster
 string Mine::mineStatus() {
     string str = "Monsters lefts : " + to_string(m_monstersList.size()) + "\nCurrent Monster: |" + m_monstersList[0]->
                  showStats();

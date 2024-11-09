@@ -19,11 +19,11 @@ void MenuManager::displayAndHandle() {
         // Check if the user enter a valid action (if he enter a letter it will ask him to ask valid entry
         // and same if he enter input less than 0 or more than the possible actions)
         if (cin.fail() || choice < 0 || choice > currentMenu->getOptionsSize()) {
-            cin.clear(); // Réinitialise l'état d'erreur
-            cin.ignore(10000,'\n'); // Ignore l'entrée incorrecte
+            cin.clear(); // reinit the error status
+            cin.ignore(10000,'\n'); // Ignore the incorrect entry
             system("cls");
             cout << "Please enter a valid action" << endl;
-            continue; // Recommence la boucle pour demander à nouveau l'entrée
+            continue; // Restart the loop for ask a new entry
         }
 
         // handleChoice will return a sub-menu pointer or a nullptr

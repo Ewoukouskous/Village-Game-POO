@@ -18,6 +18,7 @@ Village::Village(string name) {
     m_village.push_back(mine);
 }
 
+    // show a list of the building
 string Village::showBuilding() {
     string title = "-------------- " + m_name + " ---------------\n";
     ostringstream result;

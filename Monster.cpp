@@ -18,6 +18,7 @@ Monster::~Monster() {
 
 }
 
+    // show stats of the monster
 string Monster::showStats() const {
     string str = "Type : " + m_name + " | "
     + "Health: " + to_string(m_health) + " | "
@@ -28,9 +29,9 @@ string Monster::showStats() const {
     return str;
 }
 
+    // Function called when the monsters needs to deal damages to the hero
 void Monster::attackHero(Hero *hero) {
     const int monsterAttack = getAttack();
-    int heroHealth = hero->getHealth();
 
     if (isAttackDodge(hero) == false) {
         int globalAttack = monsterAttack-hero->getDefense();
@@ -49,9 +50,10 @@ void Monster::attackHero(Hero *hero) {
     }
 }
 
+    // If the hero is a wizard, he can dodge. This function generate a random number who check if the hero can dodge or no
 bool Monster::isAttackDodge(Hero *hero) {
-    // Genération d'un nombre aléatoire qui vas s'occuper du dodge
-        // Initialiser la graine du générateur aléatoire
+    // Generation of a random number between 1 to 100
+        // Init the see dof the random generator
     srand(static_cast<unsigned int>(time(nullptr)));
 
         // Générer un nombre aléatoire entre 1 et 100

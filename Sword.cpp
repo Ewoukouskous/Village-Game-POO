@@ -13,6 +13,7 @@ string Sword::getType() {
     return m_weaponType;
 }
 
+    // use one durability when the sword is used, tell it when it is broken
 int Sword::use() {
     if (m_durability <= 0 ) {
         cout << "Your Sword is broken, you won't deal any damage with it." << endl;

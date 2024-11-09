@@ -13,7 +13,7 @@ string Wand::getType() {
     return m_weaponType;
 }
 
-
+    // Use 1 durability when the wand is used, tell it when it's broken
 int Wand::use() {
     if (m_durability <= 0 ) {
         cout << "Your Wand is broken, you won't deal any damage with it." << endl;

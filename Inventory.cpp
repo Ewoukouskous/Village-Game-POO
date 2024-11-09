@@ -4,127 +4,121 @@
 
 #include "Inventory.h"
 
-// Constructeur
 Inventory::Inventory() {
-    // Taille par défaut de l'inventaire = 10
+    // Default size = 10 spaces
     m_sizeMax = 10;
 }
 
-// Destructeur
 Inventory::~Inventory() {
-    // Detruit les items de l'inventaire 1 à 1 tant qu'il n'est pas vide (en partant de la fin)
+    // Destroy every items of the inventory while it is not empty
     while (!m_itemsArray.empty()) {
-        delete m_itemsArray.back(); // Supprime l'élément en fin de vecteur
-        m_itemsArray.pop_back();    // Supprime le pointeur de la liste
+        delete m_itemsArray.back(); // delete the last item of the vector
+        m_itemsArray.pop_back();    // delete the pointer of the list
     }
 }
 
 
-// Ajoute un pointeur d'item dans 'm_itemsArray'
+// Add an item pointer int the inventory
 void Inventory::addItem(Item* ptr_item) {
-    // Si l'inventaire est remplis (10 items) = erreur
+    // if the inventory's full : show an error
     if (m_itemsArray.size() >= m_sizeMax) {
         cout << "Your inventory is full, you can't add anything in it" << endl;
         return;
     }
-    // Sinon on l'ajoute au bout de la liste
+    // if not, we add it in the end of the inventory
     m_itemsArray.push_back(ptr_item);
 }
 
-// Retire un pointeur d'item dans 'm_itemsArray' et le détruit.
+    // Remove an item pointer and delete it
 void Inventory::removeItem(const int indexItem) {
-    // Si l'index fourni correspond a aucun item présent dans l'inventaire on renvoie une erreur
+        // If the index of the item is not an index of an item : show an error
     if (indexItem < 0 || indexItem >= m_itemsArray.size()) {
         cout << "The item that you want to remove is inexistant" << endl;
         return;
     }
-    // Si l'index fourni correspond a une arme ou un bouclier on demande a l'utilisateur s'il est sur de vouloir supprimer
+        // If the item we want to delete is a weapon or a shield. It asks a confirmation
     else if (dynamic_cast<Weapon*>(m_itemsArray[indexItem]) ||  m_itemsArray[indexItem]->getType() == "SHIELD" ) {
         cout << "Vous allez supprimer un '" << m_itemsArray[indexItem]->getType() << "' de votre inventaire. \nEtes-vous sur ? [y/n] :" << endl;
         char answer;
         cin >> answer;
-        // Verification de l'input
+            // Check the input
         if (answer == 'y' || answer == 'Y') {
             cout << m_itemsArray[indexItem]->getName() << " a ete supprimer" << endl;
-            // Destruction de l'item
+                // Destruction of the item
             delete m_itemsArray[indexItem];
             m_itemsArray[indexItem]=nullptr;
-            // On retire le pointeur de l'item de l'inventaire
+                // We remove the pointer item in the inventory
             m_itemsArray.erase(m_itemsArray.begin() + indexItem);
             return;
         }
-        // Si l'utilisateur ne répond pas positivement on annule l'action
+        // If the user input isn't positive we don't do the action
         cout << m_itemsArray[indexItem]->getName() << " n'a pas ete supprimer" << endl;
         return;
     }
-    // UNIQUEMENT SI LE JOUEUR SOUHAITE PRENDRE UNE POTION
+        // JUST IF THE PLAYER WANT TO TAKE A POTION
     delete m_itemsArray[indexItem];
     m_itemsArray.erase(m_itemsArray.begin() + indexItem);
 }
 
-// Renvoi un pointeur de Wand* pour que le hero puisse l'équiper
+// Return a wand pointer which can be equipped by the hero
  Wand* Inventory::equipWand(const int indexItem){
-    // On creer un Wand* temporaire qui permet de
-    // verifier si l'index renvoie bien sur une 'WAND'
+    // We create a temporary wand that check if the input is really a wand
     Wand* wand = dynamic_cast<Wand*>(m_itemsArray[indexItem]);
     if (wand) {
-        // Creation d'un pointeur de Wand*
+        // Creation of a wand pointer
         Wand* equippedWand = wand;
         cout << m_itemsArray[indexItem]->getName() << " a ete retire de l'inventaire"<<endl;
-        // On supprime la 'WAND' de l'inventaire mais on ne DETRUIT PAS l'item
-        m_itemsArray.erase(m_itemsArray.begin() + indexItem);  // Retire l'élément de l'inventaire
+        // We delete the wand in the inventory but we NOT delete the wand
+        m_itemsArray.erase(m_itemsArray.begin() + indexItem);  // Take of the inventory
         return equippedWand;
     }
-    // Si l'index fourni ne renvoi pas sur une 'WAND' on renvoi un pointeur vide
+    // If the index sended is not a wand pointer, return a null pointer
     return nullptr;
 }
 
-// Renvoi un pointeur de Sword* pour que le hero puisse l'équiper
+// Return a sword pointer
 Sword* Inventory::equipSword(const int indexItem){
-    // On creer un Sword* temporaire qui permet de
-    // verifier si l'index renvoie bien sur une 'SWORD'
+    // // We create a temporary sword that check if the input is really a sword
     Sword* sword = dynamic_cast<Sword*>(m_itemsArray[indexItem]);
     if (sword) {
-        // Creation d'un pointeur de Sword*
+        // Creation of a sword pointer
         Sword* equippedSword = sword;
         cout << m_itemsArray[indexItem]->getName() << " a ete retire de l'inventaire"<<endl;
-        // On supprime la 'SWORD' de l'inventaire mais on ne DETRUIT PAS l'item
-        m_itemsArray.erase(m_itemsArray.begin() + indexItem);  // Retire l'élément de l'inventaire
+        // We delete the sword in the inventory but not the item
+        m_itemsArray.erase(m_itemsArray.begin() + indexItem);  // take of from the inventory
         return equippedSword;
     }
-    // Si l'index fourni ne renvoi pas sur une 'SWORD' on renvoi un pointeur vide
+    // If the index returned is not a sword, it return a null pointer
     return nullptr;
 }
 
-// Renvoi un pointeur de Shield* pour que le hero puisse l'équiper
+// Return a shield pointer
 Shield* Inventory::equipShield(const int indexItem){
-    // On creer un Shield* temporaire qui permet de
-    // verifier si l'index renvoie bien sur un 'SHIELD'
+    // // We create a temporary shield that check if the input is really a shield
     Shield* shield = dynamic_cast<Shield*>(m_itemsArray[indexItem]);
     if (shield) {
-        // Creation d'un pointeur de Shield*
+        // Creation of a shield pointer
         Shield* equippedShield = shield;
         cout << m_itemsArray[indexItem]->getName() << " a ete retire de l'inventaire"<<endl;
-        // On supprime le 'SHIELD' de l'inventaire mais on ne DETRUIT PAS l'item
+        // We delete the shield from the inventory but not the item
         m_itemsArray.erase(m_itemsArray.begin() + indexItem);  // Retire l'élément de l'inventaire
         return equippedShield;
     }
-    // Si l'index fourni ne renvoi pas sur un 'SHIELD' on renvoi un pointeur vide
+    // If the index returned is not a shield, it returns a null pointer
     return nullptr;
 }
 
-// Renvoi le type d'item présent dans l'inventaire (SWORD,WAND,SHIELD,POTIONHEAL,POTIONSTRENGTH,POTIONDEFENSE)
+// return the type of the item asked
 string Inventory::getItemType(const int indexItem) const {
-    // Si l'index fourni correspond a aucun item présent dans l'inventaire on renvoie une erreur
+    // Return an error if the index sended doesn't exist
     if (indexItem < 0 || indexItem >= m_itemsArray.size()) {
-        // cout << "The item that you want to remove is inexistant" << endl;
         return "The item you try to reach doesnt exist";
     }
     return m_itemsArray[indexItem]->getType();
 
 }
 
-
+    // Make a list of the item in the inventory
 string Inventory::getInventoryList() const {
     string list = "";
     if (m_itemsArray.size() == 0) {
@@ -135,11 +129,6 @@ string Inventory::getInventoryList() const {
             list += "\n";
         }
         list += "|[index " + to_string(i) + "]: " + m_itemsArray[i]->getName() + "|  ";
-        // cout << "|[index " << i << "]: " << m_itemsArray[i]->getName() << " | ";
     }
-
-
     return list;
 }
-
-

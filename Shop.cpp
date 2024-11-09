@@ -28,6 +28,7 @@ void Shop::addToInventory (Item* item) {
     m_shopInventory.push_back(item);
 }
 
+    // Clone an item, like that the shop is infinite
 Item* Shop::getItemCopy(int index) {
     if (index >= 0 && index < m_shopInventory.size()) {
         return m_shopInventory[index]->clone();  // Utilise clone pour obtenir une copie
@@ -97,6 +98,7 @@ string Shop::introduceBuilding(){
     return result;
 }
 
+    // delete the shop and all the item in it
 Shop::~Shop() {
     for (int i = 0; i < m_shopInventory.size(); i++) {
         delete m_shopInventory[i];

@@ -4,38 +4,38 @@
 
 #include "Wizard.h"
 
-// La classe 'WIZARD' a 20 point de DODGE par défaut
+// Class wizard had 20 dodge
 Wizard::Wizard(const string &name) : Hero(name) {
     m_type = "Wizard";
     m_dodge = 20;
 }
 
-// Override de la fonction, un 'WIZARD' peut uniquement équiper des WAND en arme
+// Override, wizard can just equip wands
 void Wizard::equipWeapon(Weapon* ptr_weapon) {
-    // Si le l'item envoyé n'est pas une WAND = erreur
+    // if the item isn't a wand : error
     if (typeid(*ptr_weapon) != typeid(Wand)) {
         cout << "Un WIZARD ne peux pas equiper autre chose qu'une 'WAND'" << endl;
         return;
     }
-    // Sinon on défini l'arme dans 'm_weapon'
+    // Else we define the weapon in m_weapon
     m_weapon = ptr_weapon;
     cout << "Vous avez equiper une 'WAND'" << endl;
 
 }
 
-// Override de la fonction, Equiper une WAND provenant de l'inventaire
+// Override equip a wand from the inventory
 void Wizard::equipFromInventory(const int indexItem) {
-    // Si l'index renvoi a un item autre qu'une 'WAND' = erreur
+    // if index isn't a wand : error
     if (m_inventory->getItemType(indexItem) != "WAND") {
         cout << "Un WIZARD ne peut pas equiper '" << m_inventory->getItemType(indexItem) << "'" << endl;
         return;
     }
-    // Si une baguette est déjà équipée = erreur
+    // If a wand's already equipped : error
     if (m_weapon != nullptr) {
         cout << "Impossible d'equiper une arme tant que vous avez une arme deja equipee" << endl;
         return;
     }
-    // Si l'item est une 'WAND' on l'ajoute a 'm_weapon'
+    // else we define the wand in m_weapon
     m_weapon = m_inventory->equipWand(indexItem);
     cout << "Vous avez equipe " << m_weapon->getName()<<endl;
 }
