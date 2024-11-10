@@ -14,20 +14,20 @@ void StopSound() {
 
 void PlaySoundHostel() {
     // Play the music
-    PlaySound(TEXT("HostelMusic.wav"), NULL,SND_LOOP |  SND_ASYNC);
+    PlaySound(TEXT("../musics/HostelMusic.wav"), NULL,SND_LOOP |  SND_ASYNC);
 }
 
 void PlaySoundShop() {
-    PlaySound(TEXT("ShopMusic.wav"), NULL,SND_LOOP |  SND_ASYNC);
+    PlaySound(TEXT("../musics/ShopMusic.wav"), NULL,SND_LOOP |  SND_ASYNC);
 
 }
 
 void PlaySoundCave() {
-    PlaySound(TEXT("MineMusic.wav"), NULL, SND_LOOP | SND_ASYNC);
+    PlaySound(TEXT("../musics/MineMusic.wav"), NULL, SND_LOOP | SND_ASYNC);
 }
 
 void PlaySoundCongratsSFX() {
-    PlaySound(TEXT("CongratSFX.wav"), NULL, SND_ASYNC);
+    PlaySound(TEXT("../musics/CongratSFX.wav"), NULL, SND_ASYNC);
 }
 
 using std::cout; using std::cerr;
@@ -73,7 +73,7 @@ void invicibleCheat() {
     system("cls");
 
     // Start the music
-    PlaySound(TEXT("specialSFX.wav"), NULL, SND_ASYNC);
+    PlaySound(TEXT("../musics/specialSFX.wav"), NULL, SND_ASYNC);
 
     // Initialize the animation control variable
     int frame = 1;
