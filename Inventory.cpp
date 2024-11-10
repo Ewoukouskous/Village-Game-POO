@@ -38,12 +38,12 @@ void Inventory::removeItem(const int indexItem) {
     }
         // If the item we want to delete is a weapon or a shield. It asks a confirmation
     else if (dynamic_cast<Weapon*>(m_itemsArray[indexItem]) ||  m_itemsArray[indexItem]->getType() == "SHIELD" ) {
-        cout << "Vous allez supprimer un '" << m_itemsArray[indexItem]->getType() << "' de votre inventaire. \nEtes-vous sur ? [y/n] :" << endl;
+        cout << "You're going to delete a  '" << m_itemsArray[indexItem]->getType() << "' from you Inventory. \nAre your sure ? [y/n] :" << endl;
         char answer;
         cin >> answer;
             // Check the input
         if (answer == 'y' || answer == 'Y') {
-            cout << m_itemsArray[indexItem]->getName() << " a ete supprimer" << endl;
+            cout << m_itemsArray[indexItem]->getName() << " get deleted" << endl;
                 // Destruction of the item
             delete m_itemsArray[indexItem];
             m_itemsArray[indexItem]=nullptr;
@@ -52,7 +52,7 @@ void Inventory::removeItem(const int indexItem) {
             return;
         }
         // If the user input isn't positive we don't do the action
-        cout << m_itemsArray[indexItem]->getName() << " n'a pas ete supprimer" << endl;
+        cout << m_itemsArray[indexItem]->getName() << " has not been deleted" << endl;
         return;
     }
         // JUST IF THE PLAYER WANT TO TAKE A POTION
@@ -67,12 +67,12 @@ void Inventory::removeItem(const int indexItem) {
     if (wand) {
         // Creation of a wand pointer
         Wand* equippedWand = wand;
-        cout << m_itemsArray[indexItem]->getName() << " a ete retire de l'inventaire"<<endl;
+        cout << m_itemsArray[indexItem]->getName() << " has been removed from Inventory"<<endl;
         // We delete the wand in the inventory but we NOT delete the wand
         m_itemsArray.erase(m_itemsArray.begin() + indexItem);  // Take of the inventory
         return equippedWand;
     }
-    // If the index sended is not a wand pointer, return a null pointer
+    // If the index sent is not a wand pointer, return a null pointer
     return nullptr;
 }
 
@@ -81,10 +81,10 @@ Sword* Inventory::equipSword(const int indexItem){
     // // We create a temporary sword that check if the input is really a sword
     Sword* sword = dynamic_cast<Sword*>(m_itemsArray[indexItem]);
     if (sword) {
-        // Creation of a sword pointer
+        // Creation of a temporary sword pointer
         Sword* equippedSword = sword;
-        cout << m_itemsArray[indexItem]->getName() << " a ete retire de l'inventaire"<<endl;
-        // We delete the sword in the inventory but not the item
+        cout << m_itemsArray[indexItem]->getName() << " has been removed from Inventory"<<endl;
+        // We erase the sword in the inventory but not the item
         m_itemsArray.erase(m_itemsArray.begin() + indexItem);  // take of from the inventory
         return equippedSword;
     }
@@ -94,21 +94,21 @@ Sword* Inventory::equipSword(const int indexItem){
 
 // Return a shield pointer
 Shield* Inventory::equipShield(const int indexItem){
-    // // We create a temporary shield that check if the input is really a shield
+    // We create a temporary shield that check if the input is really a shield
     Shield* shield = dynamic_cast<Shield*>(m_itemsArray[indexItem]);
     if (shield) {
         // Creation of a shield pointer
         Shield* equippedShield = shield;
-        cout << m_itemsArray[indexItem]->getName() << " a ete retire de l'inventaire"<<endl;
+        cout << m_itemsArray[indexItem]->getName() << " has been removed from Inventory"<<endl;
         // We delete the shield from the inventory but not the item
-        m_itemsArray.erase(m_itemsArray.begin() + indexItem);  // Retire l'élément de l'inventaire
+        m_itemsArray.erase(m_itemsArray.begin() + indexItem);  // Remove the element from the inventory
         return equippedShield;
     }
     // If the index returned is not a shield, it returns a null pointer
     return nullptr;
 }
 
-// return the type of the item asked
+// Return the type of the item asked
 string Inventory::getItemType(const int indexItem) const {
     // Return an error if the index sended doesn't exist
     if (indexItem < 0 || indexItem >= m_itemsArray.size()) {

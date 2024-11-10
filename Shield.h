@@ -16,11 +16,11 @@ private:
     int m_durability;
 public:
     Shield(const int &defense, const int &durability, const string &name, const int &price);
-    // Renvoi le type 'SHIELD'
+    // Return the type 'SHIELD'
     string getType () override;
-    // Appelée lorsque un joueur l'utilise (baisse sa durabilité et renvoie la qte de defense)
+    // Called when the Hero use it (decrement the Durability and return the quantity of defense)
     int use() override;
-    // Une fois la durabilité a 0 le bouclier casse et ne protège plus
+    // When the durability reach 0 the Shield break and protect from nothing
     void shieldBreak();
 
     Item* clone() const override {

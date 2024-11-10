@@ -16,8 +16,8 @@ protected:
     int m_durability;
 public:
     Weapon(const int &damage, const int &durability, const string &name, const int &price);
-    // Appelée lorsque un joueur l'utilise (baisse sa durabilité)
-    // Une fois la durabilité a 0 l'arme casse et ne fait plus de dégats
+    // Called when the Hero use it (decrement his durability)
+    // When the durability reach 0 the weapon break and don't deal damage anymore
     virtual void weaponBreak() = 0;
     string getAsString() const;
 

@@ -11,9 +11,9 @@ class Wizard : public Hero{
 private:
 public:
     Wizard(const string &name);
-    // Equiper une arme (uniquement 'WAND')
+    // Equip a Weapon ('WAND' only)
     void equipWeapon(Weapon *ptr_weapon) override;
-    // Equiper une WAND provenant de l'inventaire
+    // Equip a  WAND from his Inventory
     void equipFromInventory(const int indexItem) override;
 
 

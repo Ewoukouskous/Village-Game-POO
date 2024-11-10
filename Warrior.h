@@ -11,9 +11,9 @@ class Warrior : public Hero{
 private:
 public:
     Warrior(const string &name);
-    // Equiper une arme (uniquement 'SWORD')
+    // Equipe a Weapon ('SWORD' only)
     void equipWeapon(Weapon* ptr_sword) override;
-    // Equiper une SWORD provenant de l'inventaire
+    // Equip a SWORD from his Inventory
     void equipFromInventory(const int indexItem) override;
 
     // GETTERS

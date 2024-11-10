@@ -16,62 +16,62 @@ class Village;
 class Building;
 class Monster;
 
-// La classe abstraite 'Hero' a pour enfant :
-// - 'Warrior' : Peut uniquement équiper une arme 'Sword', pas de 'Shield'
-// et possède 50% en plus de 'm_attack'
+// The abstract class 'Hero' has for child :
+// - 'Warrior' : Can only equip a 'Sword', can't equip 'Shield'
+// he got 50% more 'm_attack'
 //
-// - 'Paladin' : Peut uniquement équiper une arme 'Sword' et un 'Shield'
+// - 'Paladin' : Can only equip a 'Sword' and a 'Shield'
 //
-// - 'Wizard' : Peut uniquement équiper une arme 'Wand', pas de 'Shield'
-// et a une chance d'esquive de 20% ('m_dodge = 20')
+// - 'Wizard' : Can only equip a 'Wand', can't equip 'Shield'
+// and got a 20% chance to dodge ('m_dodge = 20')
 
 class Hero {
-// Par défaut les héros ont pour attribut:
+//  By default, all heroes got for attributes :
 private:
-    string m_name; // un nom
+    string m_name; // a name
     int m_gold; // = 50
     Village* m_heroVillage;
 
-// Les attributs pouvant être changé par en fonction de la classe:
+// All the attributes that can be changed depending on the type:
 protected:
     string m_type;
     int m_health; // = 100
-    int m_attack; // Par défaut = 10 | 'Warrior' = +50%
+    int m_attack; // By default = 10 | 'Warrior' = +50%
     int m_defense; // = 5
-    int m_dodge; // Par défaut = 0 | 'Wizard' = 20
-    Weapon* m_weapon = nullptr; // Tous peuvent avoir une arme
-    Inventory* m_inventory = nullptr; // Tous ont un inventaire (qui est crée via le constructeur)
+    int m_dodge; // By default = 0 | 'Wizard' = 20
+    Weapon* m_weapon = nullptr; // All of us can get a weapon
+    Inventory* m_inventory = nullptr; // All of us get an Inventory (made by the constructor)
     Building* m_currentLocation = nullptr;
 
 public:
 
-    // Pour créer un hero uniquement un nom est nécessaire
+    // To create a Hero only a name is necessary
     Hero(const string &name);
     virtual ~Hero() {delete m_inventory; delete m_weapon;}
-    // Le hero se présente ( Nom + classe)
+    // The Hero introduce himself ( Name + class)
     void introduceHimself() const;
-    // Methode virtuelle pure pour équiper une arme (Les classes aurons certaines restrictions)
+    // Pure virtual method to equip a weapon (The classes will get restrictions)
     virtual void equipWeapon(Weapon* ptr_weapon) = 0;
-    // Range l'arme dans l'inventaire et la désequippe (si il reste de la place)
+    // Store the weapon in the inventory and unequip it (if there is free room left in it)
     void storeWeapon();
-    // Supprime et DETRUIT l'arme équipée par le hero
+    // Delete and DESTROY the weapon equipped by the Hero
     void dropWeapon();
-    // Methode virtuelle pure qui permet d'équiper une arme ou bouclier depuis l'inventaire
-    // (Certaines classes ne pourrons pas équiper de bouclier)
+    // Virtual pure method that allow to equip a Weapon of a Shield from the Inventory
+    // (Some classes won't be able to equip a Shield)
     virtual void equipFromInventory(const int indexItem) =0;
 
     virtual void drinkFromInventory(const int indexItem);
 
-    // Ajoute un pointeur d'item dans l'inventaire
+    // Add a pointer of Item in the Inventory
     void addToInventory(Item* ptr_item) const;
-    // On supprime et detruit un objet de l'inventaire
+    // We delete and destroy an Item from the Inventory
     void removeFromInventory(const int indexItem) const;
 
     void attackMonster(Monster *monster);
 
     virtual void beingHit(int mobAttack);
 
-    // Suite de strings contenant toutes les stats du héro
+    // A series of strings containing all the hero's stats.
     virtual string showStats() const;
 
     void travel(Building *ptr_building);
@@ -111,7 +111,7 @@ public:
         return m_gold;
     }
     int getAttack() const {
-        // L'attaque dépendra de l'arme équipée
+        // The attack will depend of the weapon equipped
         int attack = m_attack;
         if (m_weapon != nullptr) {
             attack += m_weapon->getDamage();

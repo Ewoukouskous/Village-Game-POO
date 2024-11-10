@@ -10,19 +10,19 @@
 
 class Paladin : public Hero {
 private:
-    Shield* m_shield = nullptr; // Paladin a la possibilité d'équiper un SHIELD
+    Shield* m_shield = nullptr; // Paladin has the possibility to equip a SHIELD
 public:
     Paladin(const string &name);
     ~Paladin() {delete m_shield;};
-    // Equiper une arme (uniquement 'SWORD')
+    // Equip a Weapon ('SWORD only)
     void equipWeapon(Weapon* ptr_sword) override;
-    // Equiper un SHIELD
+    // Equip a 'SHIELD'
     void equipShield(Shield* ptr_shield);
-    // Range l'arme dans l'inventaire et la désequippe (si il reste de la place)
+    // Store the Weapon in the Inventory and unequip it (if there is room left)
     void storeShield();
-    // Supprime et DETRUIT le SHIELD équipé par le hero
+    // Delete and DESTROY the Shield equipped by the Hero
     void dropShield();
-    // Equiper un SHIELD ou une SWORD provenant de l'inventaire
+    // Equip a SHIELD or a SWORD from the Inventory
     void equipFromInventory(const int indexItem) override;
 
     void drinkFromInventory(const int indexItem) override;
@@ -36,7 +36,7 @@ public:
 
     // GETTERS
     int getDefense() const override {
-        // La défense dépendra du SHIELD équipé
+        // The defense depend of the SHIELD equipped
         int defense = m_defense;
         if (m_shield != nullptr) {
             defense += m_shield->getDefense();

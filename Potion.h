@@ -10,8 +10,8 @@
 
 class Potion : public Item{
 protected:
-    string m_potionType; // Type de potion
-    int m_effect; // Quantité d'effet
+    string m_potionType; // The Potion Type
+    int m_effect; // Quantity of effect
 public:
     Potion(const string &name, const int &effect, const int &price);
 

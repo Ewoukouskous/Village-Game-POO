@@ -14,12 +14,12 @@ Wizard::Wizard(const string &name) : Hero(name) {
 void Wizard::equipWeapon(Weapon* ptr_weapon) {
     // if the item isn't a wand : error
     if (typeid(*ptr_weapon) != typeid(Wand)) {
-        cout << "Un WIZARD ne peux pas equiper autre chose qu'une 'WAND'" << endl;
+        cout << "A WIZARD can only equip a 'WAND'" << endl;
         return;
     }
     // Else we define the weapon in m_weapon
     m_weapon = ptr_weapon;
-    cout << "Vous avez equiper une 'WAND'" << endl;
+    cout << "You just equipped a 'WAND'" << endl;
 
 }
 
@@ -27,16 +27,16 @@ void Wizard::equipWeapon(Weapon* ptr_weapon) {
 void Wizard::equipFromInventory(const int indexItem) {
     // if index isn't a wand : error
     if (m_inventory->getItemType(indexItem) != "WAND") {
-        cout << "Un WIZARD ne peut pas equiper '" << m_inventory->getItemType(indexItem) << "'" << endl;
+        cout << "A WI2ARD can't equip a  '" << m_inventory->getItemType(indexItem) << "'" << endl;
         return;
     }
     // If a wand's already equipped : error
     if (m_weapon != nullptr) {
-        cout << "Impossible d'equiper une arme tant que vous avez une arme deja equipee" << endl;
+        cout << "Impossible to equip a weapon until you already have one equipped" << endl;
         return;
     }
     // else we define the wand in m_weapon
     m_weapon = m_inventory->equipWand(indexItem);
-    cout << "Vous avez equipe " << m_weapon->getName()<<endl;
+    cout << "You just equipped " << m_weapon->getName()<<endl;
 }
 

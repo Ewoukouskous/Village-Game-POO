@@ -16,12 +16,12 @@ Paladin::Paladin(const string &name) : Hero(name) {
 void Paladin::equipWeapon(Weapon* ptr_sword) {
     // If the item isn't a sword : error
     if (typeid(*ptr_sword) != typeid(Sword)) {
-        cout << "Un PALADIN ne peux pas equiper une autre arme qu'une 'SWORD'" << endl;
+        cout << "A Paladin can't equip a weapon else than a SWORD" << endl;
         return;
     }
     // else we define the sword in m_weapon
     m_weapon = ptr_sword;
-    cout << "Vous avez equiper une 'SWORD'" << endl;
+    cout << "You just equipped " << m_shield->getName() << endl;
 
 }
 
@@ -29,17 +29,17 @@ void Paladin::equipWeapon(Weapon* ptr_sword) {
 void Paladin::equipShield(Shield* ptr_shield) {
     // If the item isn't a shield : error
     if (typeid(*ptr_shield) != typeid(Shield)) {
-        cout << "L'item selectionné n'est pas un SHIELD" << endl;
+        cout << "The selected item is not a SHIELD" << endl;
         return;
     }
     // If the hero had already a shield, he cannot equip another
     if (m_shield != nullptr) {
-        cout << "Vous ne pouvez pas equiper ceci car vous avez deja un 'SHIELD' d'equiper" << endl;
+        cout << "You can't equip this because you already has a SHIELD equipped" << endl;
         return;
     }
     // Else we define the shield in m_shield
     m_shield = ptr_shield;
-    cout << "Vous avez equiper un 'SHIELD'" << endl;
+    cout << "You just equipped " << m_shield->getName() << endl;
 
 }
 
@@ -70,23 +70,23 @@ void Paladin::dropShield() {
 void Paladin::equipFromInventory(const int indexItem) {
     // If the item is already equipped : error
     if (m_weapon != nullptr && m_inventory->getItemType(indexItem) == "SWORD" || m_shield != nullptr && m_inventory->getItemType(indexItem) == "SHIELD") {
-        cout << "Impossible d'equiper '"<< m_inventory->getItemType(indexItem) << "' tant que vous en deja 1 equiper" << endl;
+        cout << "Impossible to equip '"<< m_inventory->getItemType(indexItem) << "' until you already have one equipped" << endl;
         return;
     }
     // If the item is a sword, we add it in m_sword
     if (m_inventory->getItemType(indexItem) == "SWORD") {
         m_weapon = m_inventory->equipSword(indexItem);
-        cout << "Vous avez equipe " << m_weapon->getName() << endl;
+        cout << "You just equipped " << m_weapon->getName() << endl;
         return;
     }
     // If the item is a Shield, we add it in m_sword
     if (m_inventory->getItemType(indexItem) == "SHIELD") {
         m_shield = m_inventory->equipShield(indexItem);
-        cout << "Vous avez equipe " << m_shield->getName() << endl;
+        cout << "You just equipped " << m_shield->getName() << endl;
         return;
     }
     // If the item isn't a shield or a sword : error
-    cout << "Un PALADIN ne peut pas equiper '" << m_inventory->getItemType(indexItem) << "'" << endl;
+    cout << "A PALADIN can't equip a '" << m_inventory->getItemType(indexItem) << "'" << endl;
 
 }
 
@@ -98,7 +98,7 @@ void Paladin::drinkFromInventory(const int indexItem) {
     }
     Item* item = m_inventory->getItem(indexItem);
 
-    // Depending of the potion, we apply the effect
+    // Depending on the potion, we apply the effect
     if (auto* healPotion = dynamic_cast<PotionHeal*>(item) ) {
         // If the effect of the potion + the health of the hero is above 100, we apply the life of the hero to 100 ( maximum life )
         if (m_health + healPotion->getEffect() > 100) {
@@ -129,7 +129,7 @@ void Paladin::drinkFromInventory(const int indexItem) {
         cout << "You should think about using a shield instead" << endl;
         return;
     }
-    cout << "The choosen item isn't a potion" << endl;
+    cout << "The chosen item isn't a potion" << endl;
 }
 
 

@@ -31,7 +31,7 @@ void Shop::addToInventory (Item* item) {
     // Clone an item, like that the shop is infinite
 Item* Shop::getItemCopy(int index) {
     if (index >= 0 && index < m_shopInventory.size()) {
-        return m_shopInventory[index]->clone();  // Utilise clone pour obtenir une copie
+        return m_shopInventory[index]->clone();  // Use clone to get a copy of the item
     }
     return nullptr;
 }

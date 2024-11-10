@@ -13,9 +13,9 @@ class PotionDefense : public Potion{
 private:
 public:
     PotionDefense(const string &name, const int &effect, const int &price);
-    // Affiche un message d'utilisation et renvoie la quantité d'effect de la potion
+    // Display a use message and return the effect quantity of the potion
     int use() override;
-    // Renvoie 'DEFENSE_POTION'
+    // Return 'DEFENSE_POTION'
     string getType() override {
         return m_potionType;
     }

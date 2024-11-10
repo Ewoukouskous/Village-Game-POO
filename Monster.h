@@ -45,14 +45,13 @@ public:
     Monster();
     virtual ~Monster();
 
-    // juste pour voir les stats du monstre pour le debug
     string showStats() const;
 
-    // Méthode qui s'occupe d'attaquer le Hero
+    // Method to attack the Hero
     void attackHero(Hero *hero);
-    // Méthode appelée lors de l'attaque du Hero qui vérifie si le Hero dodge ou non
+    // Method calld when attacking the Hero to check if the Hero dodge or not
     bool isAttackDodge(Hero* hero);
-    // Méthode qui va give les gold au Hero si le monstre est mort
+    // Method to give the Hero the gold of the Monster when he kills it
     void isMonsterDead(Hero *hero, Monster *monster) const;
 };
 
