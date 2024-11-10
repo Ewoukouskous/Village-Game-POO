@@ -5,8 +5,6 @@
 #ifndef BUILDING_H
 #define BUILDING_H
 
-#include <iostream>
-
 #include "Hero.h"
 
 class Hero;
@@ -40,7 +38,5 @@ public:
         m_heroInside = heroInside;
     }
 };
-
-
 
 #endif //BUILDING_H

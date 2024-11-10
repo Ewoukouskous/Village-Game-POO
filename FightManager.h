@@ -60,4 +60,5 @@ public:
         return 3;
 }
 };
+
 #endif //FIGHTMANAGER_H

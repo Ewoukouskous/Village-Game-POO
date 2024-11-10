@@ -4,8 +4,8 @@
 
 #ifndef SWORD_H
 #define SWORD_H
-#include "Weapon.h"
 
+#include "Weapon.h"
 
 class Sword : public Weapon {
 public:
@@ -21,7 +21,5 @@ public:
         return new Sword(*this);
     }
 };
-
-
 
 #endif //SWORD_H

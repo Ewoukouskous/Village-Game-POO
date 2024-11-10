@@ -23,6 +23,4 @@ public:
 
 };
 
-
-
 #endif //WAND_H

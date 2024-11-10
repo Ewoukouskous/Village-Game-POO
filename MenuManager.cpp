@@ -5,6 +5,7 @@
 #include "MenuManager.h"
 
 #include <limits>
+
 // MenuManager allow the user to navigate through others menu and make them display
 // the different actions possibles
 

@@ -5,13 +5,8 @@
 #ifndef HEROMENU_H
 #define HEROMENU_H
 
-#include "Warrior.h"
-#include "Paladin.h"
-#include "Wizard.h"
 #include "Menu.h"
 #include "Village.h"
-
-
 
 // HeroMenu will display all the Hero's possible actions
 // (depending on the type of Hero)
@@ -23,7 +18,5 @@ public:
     HeroMenu(Hero* hero);
     unique_ptr<Menu> handleChoice(int choice) override;
 };
-
-
 
 #endif //HEROMENU_H

@@ -11,4 +11,3 @@ Slime::Slime() {
     m_defense = 0;
     m_gold = 30;
 }
-

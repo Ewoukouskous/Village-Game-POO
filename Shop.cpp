@@ -54,7 +54,6 @@ template<typename T> void Shop::displaySection(const string &sectionName) const 
     }
 }
 
-
 void Shop::displayAllItems() const {
     std::cout << "=================================SHOP INVENTORY=================================\n";
 
@@ -72,7 +71,6 @@ void Shop::displayAllItems() const {
 
     std::cout << "================================================================================\n";
 }
-
 
 void Shop::sellItem(int itemIndex) {
     if (itemIndex < 0 || itemIndex >= m_shopInventory.size()) {
@@ -104,4 +102,3 @@ Shop::~Shop() {
         delete m_shopInventory[i];
     }
 }
-

@@ -3,7 +3,6 @@
 //
 
 #include "HeroMenu.h"
-
 #include "Hostel.h"
 #include "HostelMenu.h"
 #include "InventoryMenu.h"
@@ -79,4 +78,3 @@ unique_ptr<Menu> HeroMenu::handleChoice(int choice) {
     // so the menuManager don't change the current Menu
     return nullptr;
     }
-

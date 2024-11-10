@@ -33,7 +33,3 @@ void Shield::shieldBreak() {
     m_defense = 0;
     m_name += " [BROKEN]";
 }
-
-
-
-

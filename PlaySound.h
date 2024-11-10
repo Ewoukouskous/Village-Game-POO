@@ -5,7 +5,6 @@
 #ifndef PLAYSOUND_H
 #define PLAYSOUND_H
 
-#include <string>
 void StopSound();
 void PlaySoundHostel();
 void PlaySoundShop();

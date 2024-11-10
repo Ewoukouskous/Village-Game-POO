@@ -1,17 +1,16 @@
 //
 // Created by amiar on 07/11/2024.
 //
+
 #include <chrono>
 #include <fstream>
 #include <iostream>
 #include <thread>
 #include <windows.h>
 
-
 void StopSound() {
     PlaySound(NULL, NULL, 0); // Arrêtez le son
 }
-
 
 void PlaySoundHostel() {
     // Play the music
@@ -31,16 +30,9 @@ void PlaySoundCongratsSFX() {
     PlaySound(TEXT("CongratSFX.wav"), NULL, SND_ASYNC);
 }
 
-
-
-
-
-
-
 using std::cout; using std::cerr;
 using std::endl; using std::string;
 using std::ifstream; using std::ostringstream;
-
 
 std::string readFileIntoString(const std::string& path) {
     ifstream input_file(path);
@@ -66,7 +58,7 @@ void draw(int frame) {
 }
 
 bool isEscPressed() {
-    // Vérifie si la touche 'ENTREE' est pressée
+    // Check if the key 'ENTER' is pressed
     return (GetAsyncKeyState(VK_ESCAPE) & 0x8000) != 0;
 }
 
@@ -113,6 +105,3 @@ void invicibleCheat() {
     PlaySound(NULL, NULL, 0); // Stop the sound
     system ("cls");
 }
-
-
-

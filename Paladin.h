@@ -6,7 +6,6 @@
 #define PALADIN_H
 
 #include "Hero.h"
-#include "Monster.h"
 
 class Paladin : public Hero {
 private:
@@ -23,9 +22,9 @@ public:
     // Delete and DESTROY the Shield equipped by the Hero
     void dropShield();
     // Equip a SHIELD or a SWORD from the Inventory
-    void equipFromInventory(const int indexItem) override;
+    void equipFromInventory(int indexItem) override;
 
-    void drinkFromInventory(const int indexItem) override;
+    void drinkFromInventory(int indexItem) override;
 
     string showStats() const override;
 
@@ -60,7 +59,5 @@ public:
     }
 
 };
-
-
 
 #endif //PALADIN_H

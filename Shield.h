@@ -27,8 +27,6 @@ public:
         return new Shield(*this);
     }
 
-
-
     // GETTERS
 
     const int& getDurability() const {
@@ -48,7 +46,5 @@ public:
 
     }
 };
-
-
 
 #endif //SHIELD_H

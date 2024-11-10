@@ -6,12 +6,10 @@
 #define ZOMBIE_H
 
 #include "Monster.h"
-#include "Hero.h"
 
 class Zombie : public Monster{
 public:
     Zombie();
 };
-
 
 #endif //ZOMBIE_H

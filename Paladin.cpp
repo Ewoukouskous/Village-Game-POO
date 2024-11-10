@@ -3,7 +3,6 @@
 //
 
 #include "Paladin.h"
-
 #include "PotionDefense.h"
 #include "PotionHeal.h"
 #include "PotionStrength.h"
@@ -22,7 +21,6 @@ void Paladin::equipWeapon(Weapon* ptr_sword) {
     // else we define the sword in m_weapon
     m_weapon = ptr_sword;
     cout << "You just equipped " << m_shield->getName() << endl;
-
 }
 
 // Function specific to the paladin. He is alone who can equip shield
@@ -87,7 +85,6 @@ void Paladin::equipFromInventory(const int indexItem) {
     }
     // If the item isn't a shield or a sword : error
     cout << "A PALADIN can't equip a '" << m_inventory->getItemType(indexItem) << "'" << endl;
-
 }
 
 void Paladin::drinkFromInventory(const int indexItem) {
@@ -132,7 +129,6 @@ void Paladin::drinkFromInventory(const int indexItem) {
     cout << "The chosen item isn't a potion" << endl;
 }
 
-
 string Paladin::showStats() const {
     int attack = m_attack;
     int defense = m_defense;
@@ -157,6 +153,7 @@ vector<string> Paladin::getInventoryActions() const {
     vector<string> actions = {"Show Inventory","Remove From Inventory","Store current weapon","Store current shield","Equip from inventory","Drink from inventory"};
     return actions;
 }
+
 void Paladin::beingHit(const int mobAttack) const {
     cout << "You receive " << mobAttack << " damages" << endl;
     if (m_shield != nullptr) {

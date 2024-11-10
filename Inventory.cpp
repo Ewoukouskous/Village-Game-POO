@@ -17,7 +17,6 @@ Inventory::~Inventory() {
     }
 }
 
-
 // Add an item pointer int the inventory
 void Inventory::addItem(Item* ptr_item) {
     // if the inventory's full : show an error

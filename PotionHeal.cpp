@@ -12,4 +12,3 @@ int PotionHeal::use() {
     cout << "You drink a heal potion that provide you " << getEffect() << " HP" << endl;
     return m_effect;
 }
-

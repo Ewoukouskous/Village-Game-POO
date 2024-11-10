@@ -151,6 +151,4 @@ public:
     Village* getHeroVillage() const { return m_heroVillage; }
 };
 
-
-
 #endif //HERO_H

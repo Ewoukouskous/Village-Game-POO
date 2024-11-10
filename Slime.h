@@ -6,7 +6,6 @@
 #define SLIME_H
 
 #include "Monster.h"
-#include "Hero.h"
 
 class Slime : public Monster{
 public:

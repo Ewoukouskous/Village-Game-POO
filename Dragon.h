@@ -6,12 +6,10 @@
 #define DRAGON_H
 
 #include "Monster.h"
-#include "Hero.h"
 
 class Dragon : public Monster{
 public:
     Dragon();
 };
-
 
 #endif //DRAGON_H

@@ -7,7 +7,6 @@
 
 #include "Item.h"
 
-
 class Potion : public Item{
 protected:
     string m_potionType; // The Potion Type
@@ -20,7 +19,5 @@ public:
         return m_effect;
     }
 };
-
-
 
 #endif //POTION_H

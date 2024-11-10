@@ -4,10 +4,10 @@
 
 #ifndef WEAPON_H
 #define WEAPON_H
+
 #include <iomanip>
 
 #include "Item.h"
-
 
 class Weapon : public Item{
 protected:
@@ -40,7 +40,5 @@ public:
         return m_durability;
     }
 };
-
-
 
 #endif //WEAPON_H

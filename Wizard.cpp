@@ -20,14 +20,13 @@ void Wizard::equipWeapon(Weapon* ptr_weapon) {
     // Else we define the weapon in m_weapon
     m_weapon = ptr_weapon;
     cout << "You just equipped a 'WAND'" << endl;
-
 }
 
 // Override equip a wand from the inventory
 void Wizard::equipFromInventory(const int indexItem) {
     // if index isn't a wand : error
     if (m_inventory->getItemType(indexItem) != "WAND") {
-        cout << "A WI2ARD can't equip a  '" << m_inventory->getItemType(indexItem) << "'" << endl;
+        cout << "A WIZARD can't equip a  '" << m_inventory->getItemType(indexItem) << "'" << endl;
         return;
     }
     // If a wand's already equipped : error
@@ -39,4 +38,3 @@ void Wizard::equipFromInventory(const int indexItem) {
     m_weapon = m_inventory->equipWand(indexItem);
     cout << "You just equipped " << m_weapon->getName()<<endl;
 }
-

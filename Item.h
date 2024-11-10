@@ -7,6 +7,7 @@
 
 #include <string>
 #include <iostream>
+
 using namespace std;
 
 class Item {
@@ -32,7 +33,5 @@ public:
         return m_price;
     }
 };
-
-
 
 #endif //ITEM_H

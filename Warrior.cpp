@@ -10,7 +10,6 @@ Warrior::Warrior(const string &name) : Hero(name) {
     m_attack = m_attack*(1+(50.0/100));
 }
 
-
 // Override A warrior can just equip sword
 void Warrior::equipWeapon(Weapon* ptr_sword) {
     // If the item isn't a sword : error

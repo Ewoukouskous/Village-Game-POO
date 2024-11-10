@@ -9,7 +9,6 @@
 #include "Monster.h"
 #include "PlaySound.h"
 
-
 class Mine : public Building {
 private :
     int m_mineLvl;
@@ -43,7 +42,5 @@ public:
 
     string getBuildingType() override;
 };
-
-
 
 #endif //MINE_H

@@ -24,5 +24,4 @@ public:
 
 };
 
-
 #endif //WIZARD_H

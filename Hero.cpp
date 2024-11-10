@@ -51,7 +51,6 @@ void Hero::dropWeapon() {
     m_weapon = nullptr;
 }
 
-
     // Add the pointer of the item in your inventory
 void Hero::addToInventory(Item *ptr_item) const {
     m_inventory->addItem(ptr_item);
@@ -130,7 +129,6 @@ void Hero::attackMonster(Monster *monster) {
     }
 
 }
-
 
     // List all the statistics of the Hero
 string Hero::showStats() const {

@@ -4,8 +4,8 @@
 
 #ifndef HOSTEL_H
 #define HOSTEL_H
-#include "Building.h"
 
+#include "Building.h"
 
 class Hostel: public Building {
 private:
@@ -18,7 +18,5 @@ public:
 
     string getBuildingType() override {return "Hostel";};
 };
-
-
 
 #endif //HOSTEL_H

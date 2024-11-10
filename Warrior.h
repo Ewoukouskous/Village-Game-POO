@@ -22,7 +22,4 @@ public:
     }
 };
 
-
-
-
 #endif //WARRIOR.H

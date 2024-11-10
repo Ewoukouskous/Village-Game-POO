@@ -32,4 +32,3 @@ void Wand::weaponBreak() {
     m_damage = 0;
     m_name += " [BROKEN]";
 }
-

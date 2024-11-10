@@ -24,6 +24,4 @@ public:
     void displayAndHandle();
 };
 
-
-
 #endif //MENUMANAGER_H

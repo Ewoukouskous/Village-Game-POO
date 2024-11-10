@@ -12,4 +12,3 @@ int PotionDefense::use() {
     cout << "You drink a defense potion that added " << m_effect << " to your defense" << endl;
     return m_effect;
 }
-

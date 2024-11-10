@@ -19,7 +19,6 @@ string Mine::mineStatus() {
     return str;
 }
 
-
 void Mine::startFight() {
     // Determinate the qty of monster from fibonacci and generate them
     int monsterQty = m_fibonacci(m_mineLvl);
@@ -51,8 +50,6 @@ void Mine::startFight() {
             }
         }
 
-
-
         // It the turn of the Hero, we start his fight menu (where he can go through his inventory)
         // Until he press '3' the Hero don't attack the Monster
         if(fightManager.displayAndHandle(m_heroInside)==3) {
@@ -65,7 +62,6 @@ void Mine::startFight() {
             m_monstersList[0]->attackHero(m_heroInside);
             cout << " - - - - - - - - - - - - - - -" << endl;
             if (m_heroInside->getHealth() <=0) {return;}
-
         }
     }
     // When there is no more Monsters in the Mine we increase the mine level and make the Hero leave.
@@ -81,4 +77,3 @@ void Mine::startFight() {
 string Mine::getBuildingType() {
     return "Mine";
 }
-

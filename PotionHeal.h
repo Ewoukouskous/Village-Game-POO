@@ -4,10 +4,10 @@
 
 #ifndef POTIONHEAL_H
 #define POTIONHEAL_H
+
 #include <iomanip>
 
 #include "Potion.h"
-
 
 class PotionHeal : public Potion{
 private:
@@ -32,7 +32,5 @@ public:
     }
     
 };
-
-
 
 #endif //POTIONHEAL_H

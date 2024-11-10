@@ -29,4 +29,5 @@ public:
         }
     }
 };
+
 #endif //MONSTERGENERATOR_H

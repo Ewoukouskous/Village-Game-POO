@@ -6,8 +6,6 @@
 #define INVENTORY_H
 
 #include <vector>
-#include <variant>
-#include <optional>
 #include "Item.h"
 #include "Sword.h"
 #include "Wand.h"
@@ -43,9 +41,6 @@ public:
         return m_itemsArray[indexItem];
     }
 
-
 };
-
-
 
 #endif //INVENTORY_H

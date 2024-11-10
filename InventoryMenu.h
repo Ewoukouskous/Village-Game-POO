@@ -7,6 +7,7 @@
 
 #include "Menu.h"
 #include "Paladin.h"
+
 class InventoryMenu : public Menu{
 public:
     // Display example :
@@ -18,8 +19,6 @@ public:
     InventoryMenu(Hero* hero) : Menu(hero)
         {m_title = m_hero->getName() + "'s Inventory";
         m_options = m_hero->getInventoryActions();}
-
-
 
     unique_ptr<Menu> handleChoice(int choice) override {
         int index = 0;
@@ -116,4 +115,5 @@ public:
         return nullptr;
     }
 };
+
 #endif //INVENTORYMENU_H

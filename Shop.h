@@ -8,8 +8,8 @@
 #include "Building.h"
 #include "Item.h"
 #include "PotionHeal.h"
-#include "PotionDefense.h"
 #include "PotionStrength.h"
+#include "PotionDefense.h"
 
 class Shop: public Building {
 private:
@@ -33,7 +33,5 @@ public:
     string introduceBuilding() override;
 
 };
-
-
 
 #endif //SHOP_H

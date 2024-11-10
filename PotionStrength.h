@@ -4,10 +4,10 @@
 
 #ifndef POTIONSTRENGTH_H
 #define POTIONSTRENGTH_H
+
 #include <iomanip>
 
 #include "Potion.h"
-
 
 class PotionStrength : public Potion {
 private:
@@ -31,7 +31,5 @@ public:
         return new PotionStrength(*this);
     }
 };
-
-
 
 #endif //POTIONSTRENGTH_H
