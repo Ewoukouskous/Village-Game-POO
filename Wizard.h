@@ -14,7 +14,7 @@ public:
     // Equip a Weapon ('WAND' only)
     void equipWeapon(Weapon *ptr_weapon) override;
     // Equip a  WAND from his Inventory
-    void equipFromInventory(const int indexItem) override;
+    void equipFromInventory(int indexItem) override;
 
 
     // GETTERS

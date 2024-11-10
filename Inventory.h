@@ -26,7 +26,6 @@ public:
     // If it's a 'SHIELD' or a 'WEAPON' ask confirmation
     void removeItem(const int indexItem);
 
-
     // Equip item methods (ne delete pas l'item de l'inventaire)
     Wand* equipWand(const int indexItem);
     Sword* equipSword(const int indexItem);

@@ -96,13 +96,13 @@ So we **HIGHLY** recommend you to activate the sound of your computer.
 
 ### <a name="#51-logic-diagram"> 🧠 Game-Logic Diagram </a>
 
-[![class.logic.diagram](readme-files/diagram)](readme-files/diagram)
+[![class.logic.diagram](readme-files/diagramClass.svg)](readme-files/diagramClass.svg)
 
 ___
 
 ### <a name="#52-menu-diagram"> ⛓️ Menu Diagram </a>
 
-[![class.logic.diagram](readme-files/diagram)](readme-files/diagram)
+[![class.logic.diagram](readme-files/diagramMenu.svg)](readme-files/diagramMenu.svg)
 
 ## <a name="credits"> 🌐 Credits <a/>
 

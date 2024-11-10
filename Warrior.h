@@ -14,7 +14,7 @@ public:
     // Equipe a Weapon ('SWORD' only)
     void equipWeapon(Weapon* ptr_sword) override;
     // Equip a SWORD from his Inventory
-    void equipFromInventory(const int indexItem) override;
+    void equipFromInventory(int indexItem) override;
 
     // GETTERS
     const string& getType() const override {
